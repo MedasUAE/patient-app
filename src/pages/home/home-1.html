@@ -1,0 +1,76 @@
+<ion-content  >
+  <ion-grid style="height: 100%">
+    <ion-row justify-content-center align-items-center style="height: 100%">
+        <ion-card>
+          <ion-row>
+            <ion-col>
+                <img src="http://www.amberclinics.com/uploads/divisionlogo/amber-logo.png" style="width: 100%;height: 120px;object-fit: contain;" padding-horizontal/>
+              </ion-col>
+            </ion-row>
+            <ion-row class="row-bottom">
+                <ion-col text-center class="bg-primary" (click)="buttonClick(dashboardLayout.buttons.button_1)">
+                  <ion-icon name="{{dashboardLayout.buttons.button_1.icon}}" class="icon-padding-top"></ion-icon>
+                  <!-- <p class="p" translate [translateParams]="{value:dashboardLayout.buttons.button_1.heading}">INNER_CONTENT</p> -->
+                  <p class="p">{{dashboardLayout.buttons.button_1.heading}}</p>
+                </ion-col> 
+              </ion-row>
+              <ion-row class="row-bottom">
+                  <ion-col text-center class="bg-primary" (click)="buttonClick(dashboardLayout.buttons.button_2)">
+                    <ion-icon name="{{dashboardLayout.buttons.button_2.icon}}" class="icon-padding-top"></ion-icon>
+                    <p class="p">{{dashboardLayout.buttons.button_2.heading}}</p>
+                  </ion-col>
+                  <ion-col text-center class="col-left-border bg-primary" (click)="buttonClick(dashboardLayout.buttons.button_3)">
+                    <ion-icon name="{{dashboardLayout.buttons.button_3.icon}}" class="icon-padding-top"></ion-icon>
+                    <p class="p">{{dashboardLayout.buttons.button_3.heading}}</p>
+                    <!-- <ion-icon name="list-box" class="icon-padding-top"></ion-icon>          
+                    <p class="p">{{ 'INSURANCE' | translate }}</p> -->
+                  </ion-col>
+                </ion-row>
+                <ion-row class="row-bottom">
+                  <ion-col text-center class="bg-primary" (click)="buttonClick(dashboardLayout.buttons.button_4)">
+                    <ion-icon name="{{dashboardLayout.buttons.button_4.icon}}" class="icon-padding-top"></ion-icon>
+                    <!-- <p class="p" translate [translateParams]="{value:dashboardLayout.buttons.button_4.heading}">INNER_CONTENT</p> -->
+                    <p class="p">{{dashboardLayout.buttons.button_4.heading}}</p>
+                    
+                  </ion-col>
+                  <ion-col text-center class="col-left-border bg-primary" (click)="buttonClick(dashboardLayout.buttons.button_5)">
+                    <ion-icon name="{{dashboardLayout.buttons.button_5.icon}}" class="icon-padding-top"></ion-icon>
+                    <!-- <p class="p" translate [translateParams]="{value:dashboardLayout.buttons.button_5.heading}">INNER_CONTENT</p> -->
+                    <p class="p">{{dashboardLayout.buttons.button_5.heading}}</p>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col text-center class="bg-primary" (click)="buttonClick(dashboardLayout.buttons.button_6)">
+                    <ion-icon name="{{dashboardLayout.buttons.button_6.icon}}" class="icon-padding-top"></ion-icon>
+                    <!-- <p class="p" translate [translateParams]="{value:dashboardLayout.buttons.button_6.heading}">INNER_CONTENT</p> -->
+                    <p class="p">{{dashboardLayout.buttons.button_6.heading}}</p>
+                    <!-- <ion-icon name="megaphone" class="icon-padding-top"></ion-icon>
+                    <p class="p">{{'NEWS_EVENTS' | translate }}</p> -->
+                  </ion-col>
+                  <ion-col text-center class="col-left-border bg-primary" (click)="buttonClick(dashboardLayout.buttons.button_7)">
+                    <ion-icon name="{{dashboardLayout.buttons.button_7.icon}}" class="icon-padding-top"></ion-icon>
+                    <!-- <p class="p" translate [translateParams]="{value:dashboardLayout.buttons.button_7.heading}">INNER_CONTENT</p> -->
+                    <p class="p">{{dashboardLayout.buttons.button_7.heading}}</p>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col text-center class="bg-primary" (click)="buttonClick(dashboardLayout.buttons.button_6)">
+                    <ion-icon name="{{dashboardLayout.buttons.button_6.icon}}" class="icon-padding-top"></ion-icon>
+                    <!-- <p class="p" translate [translateParams]="{value:dashboardLayout.buttons.button_6.heading}">INNER_CONTENT</p> -->
+                    <p class="p">{{dashboardLayout.buttons.button_6.heading}}</p>
+                    <!-- <ion-icon name="megaphone" class="icon-padding-top"></ion-icon>
+                    <p class="p">{{'NEWS_EVENTS' | translate }}</p> -->
+                  </ion-col>
+                  <ion-col text-center class="col-left-border bg-primary" (click)="buttonClick(dashboardLayout.buttons.button_7)">
+                    <ion-icon name="{{dashboardLayout.buttons.button_7.icon}}" class="icon-padding-top"></ion-icon>
+                    <!-- <p class="p" translate [translateParams]="{value:dashboardLayout.buttons.button_7.heading}">INNER_CONTENT</p> -->
+                    <p class="p">{{dashboardLayout.buttons.button_7.heading}}</p>
+                  </ion-col>
+                </ion-row>
+        </ion-card>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer text-center style="padding-top:5px;">
+  <sup>POWERED BY MEDAS SOLUTIONS</sup>
+</ion-footer>

@@ -1,0 +1,28 @@
+<ion-content>
+  <!-- <long-header></long-header> -->
+  <ion-navbar color="lightblue"></ion-navbar>
+  <ion-card color="lightblue" class="fullCard" no-margin text-center>
+    <ion-icon name="card" class="icon-padding-top" style="color:white;font-size: 10rem;">
+    </ion-icon>
+    <ion-card-header text-center style="font-size:2rem;">
+      INSURANCES
+    </ion-card-header>
+  </ion-card>
+  <!-- office list -->
+  <ion-list name="officeSelect" no-margin>
+    <ion-item>
+      <ion-label>BRANCH</ion-label>
+      <ion-select [(ngModel)]="selectedOffice" (ionChange)="onChangeOffice($event)">
+        <ion-option text-wrap *ngFor="let office of offices" [value]="office">{{office.office_Name}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-scroll scrollY="true" id="scroll">
+    <ion-list>
+      <ion-item *ngFor="let insurance of insurances" text-uppercase class="border-bottom-grey">
+        <ion-icon name="card" item-start color="lightblue"></ion-icon>
+        <h3>{{insurance.insurar_name}}</h3>
+      </ion-item>
+    </ion-list>
+  </ion-scroll>
+</ion-content>

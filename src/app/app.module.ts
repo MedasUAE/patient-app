@@ -1,34 +1,75 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+import { HttpModule, Http } from '@angular/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { HomePageModule } from '../pages/home/home.module';
 import { ListPage } from '../pages/list/list';
+import { LoginPage } from "../pages/login/login";
+import { PersonalDetailsPageModule } from "../pages/personal-details/personal-details.module";
+import { ConsultlistPageModule } from "../pages/consultlist/consultlist.module";
+import { SummaryPageModule } from "../pages/summary/summary.module";
+import { DoctorsPageModule } from "../pages/doctors/doctors.module";
+import { DoctorDetailsPageModule } from "../pages/doctor-details/doctor-details.module";
+import { ServicesPageModule } from "../pages/services/services.module";
+// import { LongHeaderPage } from "../pages/long-header/long-header";
+import { InsurancesPageModule } from "../pages/insurances/insurances.module";
+// import { BookingDetailsPageModule } from "../pages/booking-details/booking-details.module";
+import { AboutUsPageModule } from "../pages/about-us/about-us.module";
+import { LocationsPageModule } from "../pages/location/locations.module";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { HttpApiProvider } from '../providers/http-api/http-api';
+import { TranslateStaticLoader } from 'ng2-translate';
+
+export function createTranslateLoader(http: Http) {
+	return new TranslateStaticLoader(http, 'assets/lang', '.json');
+}
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    ListPage
+    ListPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    SummaryPageModule,
+    ConsultlistPageModule,
+    PersonalDetailsPageModule,
+    DoctorsPageModule,
+    DoctorDetailsPageModule,
+    ServicesPageModule,
+    InsurancesPageModule,
+    HomePageModule,
+    // BookingDetailsPageModule,
+    AboutUsPageModule,
+    LocationsPageModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [Http]
+      }
+    }),
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ListPage
+    ListPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    HttpApiProvider,
+    
   ]
 })
 export class AppModule {}

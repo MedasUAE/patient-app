@@ -1,0 +1,101 @@
+<ion-content no-bounce>
+  <ion-grid>
+      <ion-row>
+        <ion-grid>
+            <ion-row >
+                <ion-col text-center>
+                  <img src="./assets/imgs/1024x1024.png" style="width: 50%;object-fit: contain;">
+                  <br>
+                  <div text-uppercase padding color="danger">{{error}}</div>
+                </ion-col>
+            </ion-row>
+            <!-- <ion-row>
+                <ion-col>
+                  <img src="http://www.amberclinics.com/uploads/divisionlogo/amber-logo.png" style="width: 100%;object-fit: contain;padding-top:10px;"/>
+                </ion-col>
+                <ion-col>
+                  <img src="http://www.amberclinics.com/uploads/divisionlogo/alnoor-polyclinic-logo.png" style="width: 100%;object-fit: contain;" padding-vertical/>
+                </ion-col>
+                <ion-col>
+                  <img src="http://www.amberclinics.com/uploads/divisionlogo/dr-joseph-logo.png" style="width: 100%;object-fit: contain;" padding-vertical/>
+                </ion-col>
+            </ion-row> -->
+            <ion-row>
+              <!-- <ion-card> -->
+                <ion-item 
+                  padding>
+                    <ion-input 
+                      type="text" 
+                      placeholder="Username" 
+                      [(ngModel)]="username" ></ion-input>
+                </ion-item>
+                <ion-item 
+                  padding>
+                  <ion-input 
+                    [(ngModel)]="password" 
+                    name="password" 
+                    type="password"  
+                    placeholder="Password"></ion-input>
+                </ion-item>
+              <!-- </ion-card> -->
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                  <button ion-button 
+                    block style="background-color:#01B47D; color:white;" 
+                    large round 
+                    (click)="loginApi()">LOGIN</button>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                  <button ion-button 
+                    small clear block
+                    (click)="goHome()">Go To Home
+                  </button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+      </ion-row>
+      <!-- <ion-footer>
+        <h6 class="thinHeading">v1.1</h6>
+    </ion-footer> -->
+  </ion-grid>
+</ion-content>
+
+<!-- <ion-content>
+  <img style="width: 100%;height: 200px;object-fit: contain;" src="http://icons.iconarchive.com/icons/dtafalonso/android-lollipop/512/calendar-icon.png"/>
+  <form (ngSubmit)="formSubmit()" loginForm="ngForm">
+    <ion-row>
+      <ion-col>
+          <ion-item color='primary' padding-right>
+            <ion-label floating color="light">USERNAME</ion-label>
+            <ion-input 
+              [(ngModel)]="username" 
+              name="username" 
+              type="text"
+              required>
+            </ion-input>
+          </ion-item>
+          
+          <ion-item color='primary' padding-right>
+            <ion-label floating color="light">PASSWORD</ion-label>
+            <ion-input [(ngModel)]="password" name="password" type="password" required ></ion-input>
+          </ion-item>
+      </ion-col>  
+    </ion-row>
+    <br>
+    <ion-row>
+      <ion-col padding-horizontal text-center>
+          <p style="color:white;margin-top:0px;">
+            {{error}}
+          </p>
+          <button type="submit" ion-button outline color="light" round block large>LOGIN</button>
+      </ion-col>
+    </ion-row>
+    
+  </form>
+  <ion-footer>
+    <h6 class="thinHeading">POWERED BY MEDAS </h6>
+</ion-footer>
+</ion-content> -->

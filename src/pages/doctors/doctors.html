@@ -1,0 +1,35 @@
+<ion-content>
+  <ion-navbar color="lightblue"></ion-navbar>
+  <ion-card color="lightblue" class="fullCard" no-margin text-center>
+    <ion-icon 
+      name="people" 
+      style="color:white;font-size: 7rem;">
+    </ion-icon>
+    <ion-card-header text-center text-uppercase style="font-size:2rem;">
+        Doctors
+    </ion-card-header>
+  </ion-card>
+  <!-- office list -->
+  <ion-list name="officeSelect" no-margin>
+    <ion-item>
+      <ion-label>BRANCH</ion-label>
+      <ion-select [(ngModel)]="selectedOffice" (ionChange)="onChangeOffice($event)">
+        <ion-option text-wrap *ngFor="let office of offices" [value]="office">{{office.office_Name}}</ion-option>
+      </ion-select>
+    </ion-item >
+  </ion-list>
+  <ion-scroll scrollY="true" id="scroll">
+    <!-- doctors -->
+    <ion-list>
+      <ion-item 
+        *ngFor="let doctor of doctors" 
+        text-uppercase 
+        (click)="detail(doctor)"
+        class="border-bottom-grey">
+          <h3>{{doctor.doctors_name}}</h3>
+          <p><small><strong>Department:</strong>{{doctor.department_name}} ({{doctor.doctor_type}})</small></p>
+          <p><small><strong>Clinic:</strong>{{doctor.office_Name}}</small></p>
+      </ion-item>
+    </ion-list>
+  </ion-scroll>
+</ion-content>

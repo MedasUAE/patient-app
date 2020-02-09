@@ -1,0 +1,48 @@
+<ion-content>
+  <ion-navbar color="lightblue"></ion-navbar>
+  <ion-card color="lightblue" class="fullCard" no-margin text-center>
+    <ion-icon name="people" style="color:white;font-size: 7rem;">
+    </ion-icon>
+    <ion-card-header text-center text-uppercase style="font-size:2rem;">
+      {{doctor.doctors_name}}
+    </ion-card-header>
+  </ion-card>
+  <ion-scroll scrollY="true" id="scroll-doctor">
+    <!-- doctor -->
+    <ion-list>
+      <ion-item class="border-bottom-grey" text-wrap>
+        <p><strong>Department:</strong> {{doctor.department_name}} ({{doctor.doctor_type}})</p>
+        <p><strong>Clinic:</strong> {{doctor.office_Name}}</p>
+      </ion-item>
+      <ion-item class="border-bottom-grey" text-uppercase>
+        <ion-row>
+          <ion-col><strong>Days</strong></ion-col>
+          <ion-col text-center><strong>Working hours</strong></ion-col>
+        </ion-row>
+        <p *ngFor="let slot of slots">
+          <ion-row>
+            <ion-col>
+              <strong>{{slot.day}}</strong>:
+            </ion-col>
+            <ion-col text-center>
+              {{slot.appoint_hr}} - {{slot.appoint_min}}
+            </ion-col>
+          </ion-row>
+        </p>
+      </ion-item>
+      <ion-item-divider color="light">Enter Patient Details</ion-item-divider>
+      <ion-item>
+        <ion-label>Name</ion-label>
+        <ion-input type="text" name="patientname" [(ngModel)]="patientname"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Mobile</ion-label>
+        <ion-input type="tel" name="mobile" [(ngModel)]="mobile"></ion-input>
+      </ion-item>
+      <ion-item class="border-bottom-grey">
+        <button ion-button color="secondary" round block padding (click)="requestapt()">Request Appointment</button>
+      </ion-item>
+    </ion-list>
+  </ion-scroll>
+</ion-content>

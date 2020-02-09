@@ -1,0 +1,13 @@
+booking-details {
+    .fullCard {
+        width:100%;
+        border-radius: 0;
+    }
+    .border-bottom-grey:not(:last-child){
+        border-bottom: lightgrey 0.5px solid;
+    }
+    .item-inner{
+        border-bottom: none !important;
+    }
+
+}

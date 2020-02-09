@@ -1,0 +1,72 @@
+<ion-content>
+  <ion-navbar color="lightblue">
+    <ion-title color="lightblue">
+      <!-- MY PROFILE -->
+    </ion-title>
+  </ion-navbar>
+  <ion-card color="lightblue" class="fullCard" no-margin text-center>
+    <ion-icon name="md-female" class="icon-padding-top" style="color:white;font-size: 10rem;" *ngIf="profile.sex === 'Female'"></ion-icon>
+    <ion-icon name="md-male" class="icon-padding-top" style="color:white;font-size: 10rem;" *ngIf="profile.sex === 'Male'"></ion-icon>
+    <ion-card-header text-center style="font-size:2rem;">
+      {{profile.patient_name}}
+    </ion-card-header>
+  </ion-card>
+  <ion-list>
+    <ion-item 
+      text-uppercase 
+      class="border-bottom-grey">
+        <h3>Medical Record Number</h3>
+        <ion-note item-end style="font-size:1.5rem;">
+          {{profile.op_number}} 
+        </ion-note>
+    </ion-item>
+    <ion-item 
+    text-uppercase 
+    class="border-bottom-grey">
+      <h3>Gender</h3>
+      <ion-note item-end style="font-size:1.5rem;">
+        {{profile.sex}} 
+      </ion-note>
+  </ion-item>
+  <ion-item 
+    text-uppercase 
+    class="border-bottom-grey">
+      <h3>Date of Birth</h3>
+      <ion-note item-end style="font-size:1.5rem;">
+        {{profile.date_of_birth | date: 'dd-MMM-yyyy'}} 
+      </ion-note>
+  </ion-item>
+  <ion-item 
+    text-uppercase 
+    class="border-bottom-grey">
+      <h3>Mobile</h3>
+      <ion-note item-end style="font-size:1.5rem;">
+        {{profile.mobile}} 
+      </ion-note>
+  </ion-item>
+  <ion-item 
+    text-uppercase 
+    class="border-bottom-grey">
+      <h3>Emirates ID</h3>
+      <ion-note item-end style="font-size:1.5rem;">
+        {{profile.emirates_id}} 
+      </ion-note>
+  </ion-item>
+  <ion-item 
+    text-uppercase 
+    class="border-bottom-grey">
+      <h3>Registration Date</h3>
+      <ion-note item-end style="font-size:1.5rem;">
+        {{profile.registration_date | date: 'dd-MMM-yyyy'}} 
+      </ion-note>
+  </ion-item>
+  <ion-item 
+    text-uppercase 
+    class="border-bottom-grey">
+      <h3>Insurance</h3>
+      <ion-note item-end style="font-size:1.5rem;">
+        {{profile.insurar_name}} 
+      </ion-note>
+  </ion-item>
+  </ion-list>
+</ion-content>

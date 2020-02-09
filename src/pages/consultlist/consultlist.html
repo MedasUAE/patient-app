@@ -1,0 +1,29 @@
+<ion-content>
+    <ion-navbar color="lightblue"></ion-navbar>
+    <ion-card color="lightblue" class="fullCard" no-margin text-center>
+      <ion-icon 
+        name="md-list" 
+        class="icon-padding-top" 
+        style="color:white;font-size: 10rem;">
+      </ion-icon>
+      <ion-card-header text-center style="font-size:2rem;">
+          MY CONSULTATION 
+      </ion-card-header>
+    </ion-card>
+    <ion-list >
+      <ion-item 
+        *ngFor="let item of list" 
+        text-uppercase 
+        (click)="visitSummary(item)"
+        class="border-bottom-grey">
+        <ion-icon name="md-walk" item-start color="lightblue"></ion-icon>
+          <h2><strong>{{item.consult_date | date: 'EEEE, dd-MMM-yy'}}</strong></h2>
+          <p>
+            Doctor: {{item.doctors_name}} 
+          </p>
+          <p>
+            Clinic: {{item.office_Name}}
+          </p>
+      </ion-item>
+    </ion-list>
+  </ion-content>

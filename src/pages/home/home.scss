@@ -1,3 +1,55 @@
 page-home {
+    .content{
+        background-image: linear-gradient(rgb(201, 200, 200), white);
+        // background-color: color($colors, "light");
+    }
+    .icon-padding-top{
+        padding-top:0.2ex;
+        font-size:60px;
+    }
 
+    .toolbar-background-md {
+        background: transparent !important;
+    }
+    // .col-left-border{
+    //     border-left:white 0.5px solid;
+        
+    // }
+
+    .bg-primary{
+        background-color: color($colors, "primary");
+        color: white
+    }
+
+    // .row-bottom{
+    //     padding-bottom:1px;
+    //     border-bottom:white 0.9px solid;
+    // }
+    // .vertical-align-content > *
+    // {
+    //     height: 100%;
+    // }
+
+    ion-footer{
+        color: color($colors, "primary")
+    }
+
+    .top-left-border{
+        border: 0px solid transparent;
+        border-top-left-radius: 10px;
+    }
+    
+    .bottom-left-border{
+        border: 0px solid transparent;
+        border-bottom-left-radius: 10px;
+    }
+    .top-right-border{
+        border: 0px solid transparent;
+        border-top-right-radius: 10px;
+    }
+
+    .bottom-right-border{
+        border: 0px solid transparent;
+        border-bottom-right-radius: 10px;
+    }
 }

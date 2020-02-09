@@ -1,0 +1,26 @@
+<ion-content>
+  <!-- <long-header></long-header> -->
+  <ion-navbar color="lightblue"></ion-navbar>
+  <ion-card color="lightblue" class="fullCard" no-margin text-center>
+    <ion-icon 
+      name="md-list" 
+      class="icon-padding-top" 
+      style="color:white;font-size: 10rem;">
+    </ion-icon>
+    <ion-card-header text-center style="font-size:2rem;">
+        SERVICES
+    </ion-card-header>
+  </ion-card>
+  <ion-scroll scrollY="true" id="scroll">
+      <!-- doctors -->
+      <ion-list>
+        <ion-item 
+          *ngFor="let service of services" 
+          text-uppercase 
+          class="border-bottom-grey">
+            <ion-icon name="list" item-start color="lightblue"></ion-icon>
+            <h3>{{service}}</h3>
+        </ion-item>
+      </ion-list>
+    </ion-scroll>
+</ion-content>

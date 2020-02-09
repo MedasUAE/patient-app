@@ -1,0 +1,20 @@
+{
+    "BOOK_APPOINTMENT": "حجز موعد",
+    "DOCTORS": "الأطباء",
+    "INSURANCE": "التأمينات",
+    "FACILITIES": "التسهيلات",
+    "PHARMACY": "الصيدليات",
+    "NEWS_EVENTS": "الأخبار و الأحداث",
+    "ABOUT_US":"نبذة عنا",
+    "APPOINTMENTS": "المواعيد",
+    "DEPARTMENT": "الأقسام",
+    "DOCTOR": "الطبيب",
+    "NAME": "الأسم",
+    "MOBILE": "الجوال",
+    "WHEN": "الوقت",
+    "REQUEST_FOR_APPOINTMENT": "طلب حجز موعد",
+    "PLEASE_WAIT": "الرجاء الإنتظار",
+    "OK": "موافق",
+    "CANCEL": "إلغاء",
+    "INNER_CONTENT": "{{value}}"
+}
