@@ -28,7 +28,7 @@
   <ion-grid name="logo" style="margin-top:-10px;" [hidden]="profile.patient_name">
     <ion-row>
       <ion-col text-center style="padding-top: 0px">
-        <img src="../assets/imgs/1024x1024.png" style="width: 100px;height: 100px;object-fit: contain;">
+        <img src="../assets/imgs/logo.png" style="width: 500px;height: 100px;object-fit: contain;">
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -45,43 +45,21 @@
               <ion-icon name="calendar" class="icon-padding-top"></ion-icon>
             </ion-col>
             <ion-col text-uppercase class="bg-primary top-right-border" style="margin-left: -1px;">
-              <h4>My consultation</h4>
+              <h4>My Reports</h4>
               <!-- <h4 translate>BOOK_APPOINTMENT</h4>  -->
               <small>
-                <p>View your previous medical history</p>
+                <p>View your previous lab reports</p>
               </small>
             </ion-col>
           </ion-row>
-          <ion-row style="margin-top: 1px;" (click)="doctors()">
-            <ion-col class="bg-primary" col-3 text-center>
-              <ion-icon name="people" class="icon-padding-top"></ion-icon>
-            </ion-col>
-            <ion-col text-uppercase class="bg-primary" style="margin-left: -1px;">
-              <h4>Book Appointment</h4>
-              <small>
-                <p>Book your appointment with doctors</p>
-              </small>
-            </ion-col>
-          </ion-row>
-          <ion-row style="margin-top: 1px;" (click)="services()">
-            <ion-col class="bg-primary" col-3 text-center>
-              <ion-icon name="medkit" class="icon-padding-top"></ion-icon>
-            </ion-col>
-            <ion-col text-uppercase class="bg-primary" style="margin-left: -1px;">
-              <h4>services</h4>
-              <small>
-                <p>Services available in our clinic</p>
-              </small>
-            </ion-col>
-          </ion-row>
-          <ion-row style="margin-top: 1px;" (click)="insurance()">
+          <ion-row style="margin-top: 1px;" (click)="aboutus()">
             <ion-col class="bg-primary" col-3 text-center>
               <ion-icon name="list-box" class="icon-padding-top"></ion-icon>
             </ion-col>
             <ion-col text-uppercase class="bg-primary" style="margin-left: -1px;">
-              <h4>Insurances</h4>
+              <h4>Promotions</h4>
               <small>
-                <p>Available insurance companies</p>
+                <p>Avail our promotions</p>
               </small>
             </ion-col>
           </ion-row>
@@ -92,7 +70,7 @@
             <ion-col text-uppercase class="bg-primary" style="margin-left: -1px;">
               <h4>About Us</h4>
               <small>
-                <p>Know more about us</p>
+                <p>Know more our us</p>
               </small>
             </ion-col>
           </ion-row>
@@ -103,7 +81,7 @@
             <ion-col text-uppercase class="bg-primary bottom-right-border" style="margin-left: -1px;">
               <h4>Locations</h4>
               <small>
-                <p>Find the locations of our clinics </p>
+                <p>Find the locations of our clinics</p>
               </small>
             </ion-col>
           </ion-row>
