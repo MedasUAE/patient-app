@@ -16,9 +16,9 @@ export const sysOptions = {
 
 export const appId = "test3client";
 
-// const baseUrl = "http://rekhadent.dyndns.org:3000/";
+const baseUrl = "http://rekhadent.dyndns.org:3000/";
 // const baseUrl = "http://188.117.92.20:3000/";
-const baseUrl = "http://46.151.211.36:3005/";
+// const baseUrl = "http://46.151.211.36:3005/";
 
 export const urls = {
 	login: baseUrl + "login",

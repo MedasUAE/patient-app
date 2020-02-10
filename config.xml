@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="medas.app.daweni" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Daweni</name>
-    <description>App for Daweni Clinic</description>
+<widget id="medas.app.rekha" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>RekhaDental</name>
+    <description>App for Rekha Clinic</description>
     <author email="talat@medassolutions.com" href="http://,edassolutions.com/">Medas Dev Team</author>
     <content src="index.html" />
     <access origin="*" />

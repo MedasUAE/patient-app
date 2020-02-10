@@ -54,19 +54,19 @@ export class SummaryPage {
             this.load.dismiss();
           })
           .catch(error=>{})
-        this.consultSummary.vitalSigns(this.consult_id)
-          .then((result:any) => {
+        // this.consultSummary.vitalSigns(this.consult_id)
+        //   .then((result:any) => {
             
-            this.vitalsigns = result;
-            console.log(result);
-            // this.load.dismiss();
-          })
-          .catch(error=>{});  
-        this.consultSummary.labResults(this.consult_id,this.office_id)
-          .then((result:any) => {
-            this.labresult = result.labResult;
-            this.radiologyresult = result.radiologyResult;
-          })       
+        //     this.vitalsigns = result;
+        //     console.log(result);
+        //     // this.load.dismiss();
+        //   })
+        //   .catch(error=>{});  
+        // this.consultSummary.labResults(this.consult_id,this.office_id)
+        //   .then((result:any) => {
+        //     this.labresult = result.labResult;
+        //     this.radiologyresult = result.radiologyResult;
+        //   })       
       })
       .catch(error=>{})
   }
