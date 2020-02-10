@@ -15,9 +15,12 @@
           <ion-segment-button value="vitals">
             Vitals
           </ion-segment-button>
-          <ion-segment-button value="lab">
-            Lab / Radiology
+          <ion-segment-button value="medicine">
+            Prescription
           </ion-segment-button>
+          <!-- <ion-segment-button value="lab">
+            Lab / Radiology
+          </ion-segment-button> -->
         </ion-segment>
     </ion-card>
     <ion-scroll scrollY="true"  id="scroll">
@@ -83,6 +86,20 @@
                 </ion-item>
             </ion-list>
          </div>
+         <!-- medicine -->
+         <div *ngIf="workbench == 'medicine'">
+          <ion-list>
+              <ion-item 
+                *ngFor="let medicine of prescription" 
+                text-uppercase 
+                text-wrap
+                class="border-bottom-grey"
+                [ngClass] = "{}">
+                  <h3>{{medicine.generic_name}}</h3>
+                  <p><small>{{medicine.remarks}}</small></p>
+              </ion-item>
+          </ion-list>
+       </div>
        
     </ion-scroll>
     

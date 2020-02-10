@@ -22,6 +22,7 @@ export const urls = {
 	login: baseUrl + "login",
 	consults: baseUrl + "consults",
 	vitals: baseUrl + "vitalsigns",
+	prescription: baseUrl + "prescription",
 	labresult: baseUrl + "labresult",
 	doctors: baseUrl + "doctors" ,
 	slots: baseUrl + "doctorslot" ,

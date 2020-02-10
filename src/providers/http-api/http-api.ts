@@ -38,6 +38,11 @@ export class HttpApiProvider {
     return this.http.get(urls.vitals + "/" + consultid,{headers: this.headers})
   }
 
+  getPrescription(consultid){
+    this.headers.set('accept-version','1.0.0');
+    return this.http.get(urls.prescription + "/" + consultid,{headers: this.headers})
+  }
+
   getLabResult(consultid, officeid){
     this.headers.set('accept-version','1.0.0');
     return this.http.get(urls.labresult + "/" + consultid + "/" + officeid,{headers: this.headers})

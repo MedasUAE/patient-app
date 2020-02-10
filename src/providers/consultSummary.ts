@@ -71,4 +71,18 @@ export class ConsultSummaryProvider {
       //   });
     });
   }
+
+  prescription(consult_id) {
+    let result = [];
+    return new Promise((resolve, reject) => {
+      this.httpApi.getPrescription(consult_id)
+      .subscribe((response:any)=>{
+        result = JSON.parse(response._body).data;
+        resolve(result)
+      },error=>{
+        reject(result)
+        console.log(error);
+      });
+    });
+  }
 }
