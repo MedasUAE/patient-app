@@ -7,6 +7,7 @@ import { getCurrentDate } from "../../providers/system.constants";
 import { HomePage } from '../home/home';
 
 import { DoctorsProvider } from '../../providers/doctors';
+import { ConsultSummaryProvider } from '../../providers/consultSummary';
 import { AlertProvider } from '../../providers/alert';
 
 
@@ -21,7 +22,7 @@ import { AlertProvider } from '../../providers/alert';
 @Component({
   selector: 'page-doctor-details',
   templateUrl: 'doctor-details.html',
-  providers: [HttpApiProvider, DoctorsProvider, AlertProvider]
+  providers: [HttpApiProvider, DoctorsProvider, AlertProvider, ConsultSummaryProvider]
 })
 export class DoctorDetailsPage {
   doctor;
@@ -34,6 +35,7 @@ export class DoctorDetailsPage {
     public alertCtrl: AlertController,
     public modalCtrl: ModalController,
     public doctorProvider: DoctorsProvider,
+    public consultProvider: ConsultSummaryProvider,
     public alertProvider: AlertProvider,
     private httpApi: HttpApiProvider) {
       this.doctor = this.navParams.get('doctor');
@@ -52,6 +54,13 @@ export class DoctorDetailsPage {
     }
     document.getElementById("scroll-doctor").style.height = window.innerHeight - height - document.getElementsByClassName("fullCard")[0].clientHeight + "px";
     
+    //getting patient details if already login
+    const patientDetails = this.consultProvider.patientDetails();
+    if(patientDetails){
+      this.patientname = patientDetails.patient_name;
+      this.mobile = patientDetails.mobile;
+    }
+
     this.httpApi.getDoctorSlot(this.doctor.doctors_id, getCurrentDate(), getCurrentDate())
       .subscribe((result:any)=>{
           this.slots = JSON.parse(result._body).data;
