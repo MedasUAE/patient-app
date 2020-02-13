@@ -38,9 +38,19 @@ export class HttpApiProvider {
     return this.http.get(urls.vitals + "/" + consultid,{headers: this.headers})
   }
 
-  getLabResult(consultid, officeid){
+  getLabOrder(opnumber){
     this.headers.set('accept-version','1.0.0');
-    return this.http.get(urls.labresult + "/" + consultid + "/" + officeid,{headers: this.headers})
+    return this.http.get(urls.laborder + "/" + opnumber,{headers: this.headers})
+  }
+
+  getLabResult(consultid, officeid, profile_type, test_id){
+    this.headers.set('accept-version','1.0.0');
+    return this.http.get(urls.labresult + "?"+
+      "consult_id=" + consultid + 
+      "&office_id=" + officeid +
+      "&profile_type=" + profile_type +
+      "&test_id=" + test_id,
+      {headers: this.headers})
   }
 
   getDoctors(officeid){

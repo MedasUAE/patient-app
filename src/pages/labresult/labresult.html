@@ -1,0 +1,58 @@
+<ion-content>
+    <ion-navbar color="lightblue"></ion-navbar>
+    <ion-card color="lightblue" class="fullCard" no-margin text-center>
+      <ion-icon 
+        name="ios-paper" 
+        style="color:white;font-size: 7rem;">
+      </ion-icon>
+      <ion-card-header text-center style="font-size:2rem;">
+          {{test_name}}
+      </ion-card-header>
+      <ion-segment [(ngModel)]="workbench">
+          <ion-segment-button value="lab">
+            Lab
+          </ion-segment-button>
+          <ion-segment-button value="radiology">
+            Radiology
+          </ion-segment-button>
+          <ion-segment-button value="download">
+            Download
+          </ion-segment-button>
+        </ion-segment>
+    </ion-card>
+    <ion-scroll scrollY="true"  id="scroll">
+         <!-- labs -->
+         <div *ngIf="workbench == 'lab'">
+            <ion-list>
+                <ion-item 
+                  *ngFor="let result of labresult" 
+                  text-uppercase 
+                  class="border-bottom-grey"
+                  [ngClass] = "{'border-left-red': result.abnormal}">
+                    <h3>{{result.parameter_name}}</h3>
+                    <p><small>range: {{result.fnormal_Value}} unit: {{result.measure}}</small></p>
+                    <ion-note item-end 
+                      [ngClass] = 
+                        "{ 
+                          'abnormal': result.abnormal, 
+                          'normal': !result.abnormal 
+                        }" 
+                      style="font-size:1.5rem;">
+                      {{result.test_result}} 
+                    </ion-note>
+                </ion-item>
+                <ion-item-divider [hidden]="!radiologyresult.length" color="light">Radiology Results</ion-item-divider>
+                <ion-item 
+                  *ngFor="let result of radiologyresult" 
+                  text-uppercase >
+                  <p>{{result.test_details}}</p>
+                </ion-item>
+            </ion-list>
+         </div>
+       
+    </ion-scroll>
+    
+   
+  </ion-content>
+
+  

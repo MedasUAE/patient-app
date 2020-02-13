@@ -14,9 +14,9 @@ import { SummaryPageModule } from "../pages/summary/summary.module";
 import { DoctorsPageModule } from "../pages/doctors/doctors.module";
 import { DoctorDetailsPageModule } from "../pages/doctor-details/doctor-details.module";
 import { ServicesPageModule } from "../pages/services/services.module";
-// import { LongHeaderPage } from "../pages/long-header/long-header";
+import { LabResultPageModule } from "../pages/labresult/labresult.module";
 import { InsurancesPageModule } from "../pages/insurances/insurances.module";
-// import { BookingDetailsPageModule } from "../pages/booking-details/booking-details.module";
+import { LabOrderPageModule } from "../pages/laborder/laborder.module";
 import { AboutUsPageModule } from "../pages/about-us/about-us.module";
 import { LocationsPageModule } from "../pages/location/locations.module";
 
@@ -46,7 +46,8 @@ export function createTranslateLoader(http: Http) {
     ServicesPageModule,
     InsurancesPageModule,
     HomePageModule,
-    // BookingDetailsPageModule,
+    LabOrderPageModule,
+    LabResultPageModule,
     AboutUsPageModule,
     LocationsPageModule,
     TranslateModule.forRoot({

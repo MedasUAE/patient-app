@@ -1,0 +1,12 @@
+page-laborder {
+    .fullCard {
+        width:100%;
+        border-radius: 0;
+    }
+    .item-inner{
+        border-bottom: none !important;
+    }
+    .border-bottom-grey:not(:last-child){
+        border-bottom: lightgrey 0.5px solid;
+    }
+}
