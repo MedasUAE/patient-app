@@ -11,6 +11,34 @@ import { HttpApiProvider } from "./http-api/http-api";
 export class LabProvider {
   constructor(private httpApi: HttpApiProvider){}
 
+  reportFile(consult_id) {
+    let result = [];
+    return new Promise(resolve => {
+      this.httpApi.getReportFiles(consult_id)
+        .subscribe((response:any) => {
+          result = JSON.parse(response._body).data;
+          resolve(result)
+        },error=>{
+          resolve(result)
+          console.log(error);
+        })
+
+    });
+  }
+
+  download(file_name) {
+    return new Promise(resolve => {
+      this.httpApi.getDownloadFile(file_name)
+        .subscribe((response:any) => {
+          resolve(response)
+        },error=>{
+          resolve()
+          console.log(error);
+        })
+
+    });
+  }
+
   labOrder(op_number) {
     let result = [];
     return new Promise(resolve => {

@@ -25,6 +25,7 @@ export class LabResultPage {
   profile_type;
   labresult = [{"name":"LIPID PROFILE","parameters":[{"name":"LDL","value":"150","unit":"mg/dL","range":"100-169","abnormal":false},{"name":"HDL","value":"75","unit":"mg/dL","range":"40-59","abnormal":true},{"name":"Total Cholesterol","value":"250","unit":"mg/dL","range":"200-239","abnormal":true},{"name":"Triglycerides","value":"303","unit":"mg/dL","range":"150-499","abnormal":false}]},{"name":"URINE ANALYSIS","parameters":[{"name":"Pus cells","value":"4.33","unit":"/HPF","range":"0-5","abnormal":true},{"name":"Protein","value":"Negative","unit":"-","range":"Negative","abnormal":false},{"name":"RBCs","value":"1.74","unit":"/HPF","range":"0-2","abnormal":false},{"name":"Bacteria","value":"Absent","unit":"/HPF","range":"Absent","abnormal":false},{"name":"Glucose","value":"Trace","unit":"-","range":"Negative","abnormal":false}]}]
   radiologyresult = [];
+  reportfiles = [];
   load:any;
 
   constructor(
@@ -56,9 +57,17 @@ export class LabResultPage {
             this.labresult = result.labResult;
             this.radiologyresult = result.radiologyResult;
             this.load.dismiss();
-          })       
+          });
+        this.labProvider.reportFile(133)
+          .then((result:any) => {
+            this.reportfiles = result;
+          })      
       })
       .catch(error=>{})
+  }
+
+  download(file) {
+    this.labProvider.download(file.fileName)
   }
 
 }

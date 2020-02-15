@@ -23,6 +23,8 @@ export const urls = {
 	consults: baseUrl + "consults",
 	vitals: baseUrl + "vitalsigns",
 	laborder: baseUrl + "laborder" ,
+	reportfiles: baseUrl + "reportfiles" ,
+	download: baseUrl + "downloadreport" ,
 	labresult: baseUrl + "labresult",
 	doctors: baseUrl + "doctors" ,
 	slots: baseUrl + "doctorslot" ,

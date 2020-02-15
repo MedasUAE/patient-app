@@ -53,6 +53,16 @@ export class HttpApiProvider {
       {headers: this.headers})
   }
 
+  getReportFiles(consultid){
+    this.headers.set('accept-version','1.0.0');
+    return this.http.get(urls.reportfiles + "/" + consultid,{headers: this.headers})
+  }
+
+  getDownloadFile(filename){
+    this.headers.set('accept-version','1.0.0');
+    return this.http.get(urls.download + "/" + filename,{headers: this.headers})
+  }
+
   getDoctors(officeid){
     this.headers.set('accept-version','1.0.0');
     let url;
