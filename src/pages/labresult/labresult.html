@@ -33,10 +33,6 @@
             {{result.test_result}}
           </ion-note>
         </ion-item>
-        <ion-item-divider [hidden]="!radiologyresult.length" color="light">Radiology Results</ion-item-divider>
-        <ion-item *ngFor="let result of radiologyresult" text-uppercase>
-          <p>{{result.test_details}}</p>
-        </ion-item>
       </ion-list>
     </div>
 

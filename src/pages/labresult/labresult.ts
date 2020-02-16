@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { LoadingController } from 'ionic-angular';
-import { LabProvider } from '../../providers/labs'
+import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import { FileOpener } from '@ionic-native/file-opener';
 
+
+import { LoadingController } from 'ionic-angular';
+import { LabProvider } from '../../providers/labs';
 /**
  * Generated class for the SummaryPage page.
  *
@@ -14,7 +18,7 @@ import { LabProvider } from '../../providers/labs'
 @Component({
   selector: 'page-labresult',
   templateUrl: 'labresult.html',
-  providers: [LabProvider]
+  providers: [LabProvider, FileTransfer, File, FileOpener]
 })
 export class LabResultPage {
   workbench = 'lab';
@@ -32,6 +36,9 @@ export class LabResultPage {
       public navCtrl: NavController,
       public navParams: NavParams,
       private labProvider: LabProvider,
+      private transfer: FileTransfer, 
+      private fileOpener: FileOpener,
+      private file: File,
       public loader: LoadingController) {
         this.consult_id = this.navParams.get('consult_id');
         this.office_id = this.navParams.get('office_id');
@@ -58,7 +65,7 @@ export class LabResultPage {
             this.radiologyresult = result.radiologyResult;
             this.load.dismiss();
           });
-        this.labProvider.reportFile(133)
+        this.labProvider.reportFile(this.consult_id)
           .then((result:any) => {
             this.reportfiles = result;
           })      
@@ -66,8 +73,22 @@ export class LabResultPage {
       .catch(error=>{})
   }
 
+  
+
   download(file) {
-    this.labProvider.download(file.fileName)
+    const fileTransfer: FileTransferObject = this.transfer.create();
+    const url = 'http://46.151.211.36:3005/downloadreport/' + file.fileName;
+    console.log(url, this.file.dataDirectory);
+    
+    fileTransfer.download(url, this.file.dataDirectory + file.fileName).then((entry) => {
+      console.log('download complete: ' + entry.toURL());
+      this.fileOpener.open(entry.toURL(), 'application/pdf')
+        .then(() => console.log('File is opened'))
+        .catch(e => console.log('Error opening file', e));
+      }, (error) => {
+        console.log(error);
+        // handle error
+    });
   }
 
 }

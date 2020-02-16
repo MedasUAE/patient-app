@@ -1,9 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { HttpModule, Http } from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-
 import { MyApp } from './app.component';
 import { HomePageModule } from '../pages/home/home.module';
 import { ListPage } from '../pages/list/list';
@@ -23,11 +21,6 @@ import { LocationsPageModule } from "../pages/location/locations.module";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpApiProvider } from '../providers/http-api/http-api';
-import { TranslateStaticLoader } from 'ng2-translate';
-
-export function createTranslateLoader(http: Http) {
-	return new TranslateStaticLoader(http, 'assets/lang', '.json');
-}
 
 @NgModule({
   declarations: [
@@ -50,13 +43,6 @@ export function createTranslateLoader(http: Http) {
     LabResultPageModule,
     AboutUsPageModule,
     LocationsPageModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [Http]
-      }
-    }),
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],

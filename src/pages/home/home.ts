@@ -78,7 +78,10 @@ export class HomePage {
   }
 
   laborder(){
-    
+    if(!this.profile.patient_name) {
+      this.navCtrl.push(LoginPage);
+      return;
+    }
     this.navCtrl.push(LabOrderPage);
   }
 
