@@ -8,6 +8,7 @@ import { ServicesPage} from '../services/services';
 import { InsurancesPage} from '../insurances/insurances';
 import { AboutUsPage} from '../about-us/about-us';
 import { LocationsPage } from '../location/locations';
+import { LabOrderPage } from '../laborder/laborder';
 
 @IonicPage()
 @Component({
@@ -74,6 +75,11 @@ export class HomePage {
   
   locations(){
     this.navCtrl.push(LocationsPage);
+  }
+
+  laborder(){
+    
+    this.navCtrl.push(LabOrderPage);
   }
 
   logout(){

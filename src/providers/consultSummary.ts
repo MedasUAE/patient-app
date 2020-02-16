@@ -10,6 +10,7 @@ import { HttpApiProvider } from "../providers/http-api/http-api";
 
 export class ConsultSummaryProvider {
   constructor(private httpApi: HttpApiProvider){}
+  
   consultSummary(consult_id){
     let consult_Summary = {present_complaint:"",icd_desc:"",diagnosis_category:"P","type":"F"};
     return new Promise((resolve, reject) => {
@@ -45,52 +46,5 @@ export class ConsultSummaryProvider {
           reject(vitalsigns)
         });
     });
-  }
-
-  labResults(consult_id, office_id) {
-    let result = {
-      labResult: [],
-      radiologyResult: []
-    };
-    return new Promise((resolve, reject) => {
-      this.httpApi.getLabResult(consult_id,office_id)
-      .subscribe((response:any)=>{
-        result = JSON.parse(response._body).data;
-        resolve(result)
-      },error=>{
-        reject(result)
-        console.log(error);
-      });
-      // this.httpApi.getVitalSigns(consult_id)
-      //   .subscribe((result:any)=>{
-      //     vitalsigns = JSON.parse(result._body).data;
-      //     resolve(vitalsigns)
-      //   },error=>{
-      //     console.log(error);
-      //     reject(vitalsigns)
-      //   });
-    });
-  }
-
-  prescription(consult_id) {
-    let result = [];
-    return new Promise((resolve, reject) => {
-      this.httpApi.getPrescription(consult_id)
-      .subscribe((response:any)=>{
-        result = JSON.parse(response._body).data;
-        resolve(result)
-      },error=>{
-        reject(result)
-        console.log(error);
-      });
-    });
-  }
-
-  patientDetails(){
-    let profile: any = localStorage.getItem('profile')
-    if(!profile) return;
-
-    profile = JSON.parse(profile);
-    return { mobile: parseInt(profile.mobile), patient_name: profile.patient_name  }
   }
 }
