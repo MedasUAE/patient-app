@@ -47,4 +47,12 @@ export class ConsultSummaryProvider {
         });
     });
   }
+
+  patientDetails(){
+    let profile: any = localStorage.getItem('profile')
+    if(!profile) return;
+
+    profile = JSON.parse(profile);
+    return { mobile: parseInt(profile.mobile), patient_name: profile.patient_name  }
+  }
 }

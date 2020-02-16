@@ -36,74 +36,73 @@
   <!-- <ion-grid style="height: 80%" > -->
   <ion-scroll scrollY="true" id="homescroll">
     <ion-grid>
-      <!-- <ion-row justify-content-center align-items-center style="height: 100%"> -->
-      <ion-row>
-        <!-- <ion-card> -->
-        <ion-grid>
-          <ion-row class="top-left-border top-right-border" style="margin-top: 1px;" (click)="laborder()">
-            <ion-col class="bg-primary top-left-border" col-3 text-center>
-              <ion-icon name="calendar" class="icon-padding-top"></ion-icon>
-            </ion-col>
-            <ion-col text-uppercase class="bg-primary top-right-border" style="margin-left: -1px;">
-              <h4>My Reports</h4>
-              <!-- <h4 translate>BOOK_APPOINTMENT</h4>  -->
-              <small>
-                <p>View your previous lab reports</p>
-              </small>
-            </ion-col>
-          </ion-row>
-          <ion-row style="margin-top: 1px;" (click)="aboutus()">
-            <ion-col class="bg-primary" col-3 text-center>
-              <ion-icon name="list-box" class="icon-padding-top"></ion-icon>
-            </ion-col>
-            <ion-col text-uppercase class="bg-primary" style="margin-left: -1px;">
-              <h4>Promotions</h4>
-              <small>
-                <p>Avail our promotions</p>
-              </small>
-            </ion-col>
-          </ion-row>
-          <ion-row style="margin-top: 1px;" (click)="aboutus()">
-            <ion-col class="bg-primary" col-3 text-center>
-              <ion-icon name="ios-flower" class="icon-padding-top"></ion-icon>
-            </ion-col>
-            <ion-col text-uppercase class="bg-primary" style="margin-left: -1px;">
-              <h4>About Us</h4>
-              <small>
-                <p>Know more our us</p>
-              </small>
-            </ion-col>
-          </ion-row>
-          <ion-row (click)="locations()" class="bottom-left-border bottom-left-border bottom-right-border" style="margin-top: 1px;">
-            <ion-col class="bg-primary bottom-left-border" col-3 text-center>
-              <ion-icon name="ios-pin" class="icon-padding-top"></ion-icon>
-            </ion-col>
-            <ion-col text-uppercase class="bg-primary bottom-right-border" style="margin-left: -1px;">
-              <h4>Locations</h4>
-              <small>
-                <p>Find the locations of our clinics</p>
-              </small>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-        <!-- </ion-card> -->
+      <ion-row class="top-left-border top-right-border" style="margin-top: 1px;" (click)="myconsultation()">
+        <ion-col class="bg-primary top-left-border" col-3 text-center>
+          <ion-icon name="calendar" class="icon-padding-top"></ion-icon>
+        </ion-col>
+        <ion-col text-uppercase class="bg-primary top-right-border" style="margin-left: -1px;">
+          <h4>My consultation</h4>
+          <!-- <h4 translate>BOOK_APPOINTMENT</h4>  -->
+          <small>
+            <p>View your previous medical history</p>
+          </small>
+        </ion-col>
+      </ion-row>
+      <ion-row style="margin-top: 1px;" (click)="doctors()">
+        <ion-col class="bg-primary" col-3 text-center>
+          <ion-icon name="people" class="icon-padding-top"></ion-icon>
+        </ion-col>
+        <ion-col text-uppercase class="bg-primary" style="margin-left: -1px;">
+          <h4>Book Appointment</h4>
+          <small>
+            <p>Book your appointment with doctors</p>
+          </small>
+        </ion-col>
+      </ion-row>
+      <ion-row style="margin-top: 1px;" (click)="services()">
+        <ion-col class="bg-primary" col-3 text-center>
+          <ion-icon name="medkit" class="icon-padding-top"></ion-icon>
+        </ion-col>
+        <ion-col text-uppercase class="bg-primary" style="margin-left: -1px;">
+          <h4>services</h4>
+          <small>
+            <p>Services available in our clinic</p>
+          </small>
+        </ion-col>
+      </ion-row>
+      <ion-row style="margin-top: 1px;" (click)="insurance()">
+        <ion-col class="bg-primary" col-3 text-center>
+          <ion-icon name="list-box" class="icon-padding-top"></ion-icon>
+        </ion-col>
+        <ion-col text-uppercase class="bg-primary" style="margin-left: -1px;">
+          <h4>Insurances</h4>
+          <small>
+            <p>Available insurance companies</p>
+          </small>
+        </ion-col>
+      </ion-row>
+      <ion-row style="margin-top: 1px;" (click)="aboutus()">
+        <ion-col class="bg-primary" col-3 text-center>
+          <ion-icon name="ios-flower" class="icon-padding-top"></ion-icon>
+        </ion-col>
+        <ion-col text-uppercase class="bg-primary" style="margin-left: -1px;">
+          <h4>About Us</h4>
+          <small>
+            <p>Know more about us</p>
+          </small>
+        </ion-col>
+      </ion-row>
+      <ion-row (click)="locations()" class="bottom-left-border bottom-left-border bottom-right-border" style="margin-top: 1px;">
+        <ion-col class="bg-primary bottom-left-border" col-3 text-center>
+          <ion-icon name="ios-pin" class="icon-padding-top"></ion-icon>
+        </ion-col>
+        <ion-col text-uppercase class="bg-primary bottom-right-border" style="margin-left: -1px;">
+          <h4>Locations</h4>
+          <small>
+            <p>Find the locations of our clinics </p>
+          </small>
+        </ion-col>
       </ion-row>
     </ion-grid>
   </ion-scroll>
 </ion-content>
-<ion-footer no-padding>
-  <!-- <sup>POWERED BY MEDAS SOLUTIONS</sup> -->
-  <!-- <ion-grid no-padding>
-      <ion-row no-padding>
-          <ion-col no-padding>
-            <img src="http://www.amberclinics.com/uploads/divisionlogo/amber-logo.png" style="width: 100%;object-fit: contain;padding-top:10px;"/>
-          </ion-col>
-          <ion-col no-padding>
-            <img src="http://www.amberclinics.com/uploads/divisionlogo/alnoor-polyclinic-logo.png" style="width: 100%;object-fit: contain;" padding-vertical/>
-          </ion-col>
-          <ion-col no-padding>
-            <img src="http://www.amberclinics.com/uploads/divisionlogo/dr-joseph-logo.png" style="width: 100%;object-fit: contain;" padding-vertical/>
-          </ion-col>
-      </ion-row>
-    </ion-grid> -->
-</ion-footer>
