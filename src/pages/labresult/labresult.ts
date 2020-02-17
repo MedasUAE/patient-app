@@ -65,10 +65,10 @@ export class LabResultPage {
             this.radiologyresult = result.radiologyResult;
             this.load.dismiss();
           });
-        this.labProvider.reportFile(this.consult_id)
-          .then((result:any) => {
-            this.reportfiles = result;
-          })      
+        // this.labProvider.reportFile(this.consult_id)
+        //   .then((result:any) => {
+        //     this.reportfiles = result;
+        //   })      
       })
       .catch(error=>{})
   }
