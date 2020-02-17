@@ -14,15 +14,8 @@
   <div text-center >
     <img src="../assets/imgs/logo.png" style="width: 100px;height: 100;object-fit: contain;">
   </div>
-  <h4>ALFARABI MEDICAL LABORATORIES</h4>
-  <p >
-    AlFarabi Medical Laboratories are the most recent private referral laboratory in the Kingdom of Saudi Arabia. It was founded in 2010 by a group of Saudi academician and consultants in Laboratory medicine from King Saud University in Riyadh, Saudi Arabia. AlFarabi Laboratories provides a referral Medical Laboratory services to the private and government health care sectors. We are very pleased to serve and provide a high quality laboratory services to the medical community at large in Saudi Arabia.
-    The laboratory performs a wide range of laboratory tests and all the fields of pathology including histopathology and cytology. We also provide services in the field of hematology, microbiology (bacteriology, virology, mycology and parasitology), biochemistry, immunology, allergy , chromosomal studies and molecular biology (PCR).
-  </p>
-  <h4 text-center>شركة مختبرات الفارابي الطبية</h4>
-  <p>
-مختبرات الفارابي من احدث المختبرات المرجعية الطبية في المملكة العربية السعودية. وقد تأسست في عام 2010م من قبل مجموعة من الأكاديميين والاستشاريين السعوديين البارزين والعاملين في جامعة الملك سعود بالرياض. تقدم مختبرات الفارابي الخدمات المخبرية المرجعية إلى كافة قطاعات الرعاية الصحية الخاصة والحكومية. ونحن سعداء جدا بتوفير خدمات عالية الجودة للمجتمع الطبي ككل في المملكة العربية السعودية.
-تقوم مختبرات الفارابي بعمل الكثير من التحاليل الطبية في جميع مجالات علم الأمراض وتتضمن الأنسجة والخلايا. أيضا نقوم بتقديم كثير من الخدمات المتخصصة في مجالات علم الدم والأحياء الدقيقة (البكتيريا والفيروسات والفطريات والطفيليات) ومجالات الكيمياء الحيوية والمناعة والحساسية وأيضا التقنيات الجزيئية (بي سي ار) والأمراض المناعية ودراسة الكروموسومات.
-  </p>
-  
+  <div text-center [innerHTML]="aboutus.title" padding-top></div>
+  <div [innerHTML]="aboutus.details"></div>
+  <div text-center [innerHTML]="aboutus.title_ar" padding-top></div>
+  <div [innerHTML]="aboutus.details_ar"></div>
 </ion-content>

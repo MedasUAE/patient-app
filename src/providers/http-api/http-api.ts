@@ -18,6 +18,11 @@ export class HttpApiProvider {
     this.headers.append('accept-version','1.0.0');
   }
 
+  getAboutUs(){
+    this.headers.set('accept-version','1.0.0');
+    return this.http.get(urls.aboutus ,{headers: this.headers})
+  }
+
   getConsultList(opnumber){
     this.headers.set('accept-version','1.0.0');
     return this.http.get(urls.consults + "/" + opnumber,{headers: this.headers})
@@ -61,11 +66,6 @@ export class HttpApiProvider {
   getReportFiles(consultid){
     this.headers.set('accept-version','1.0.0');
     return this.http.get(urls.reportfiles + "/" + consultid,{headers: this.headers})
-  }
-
-  getDownloadFile(filename){
-    this.headers.set('accept-version','1.0.0');
-    return this.http.get(urls.download + "/" + filename,{headers: this.headers})
   }
 
   getDoctors(officeid){

@@ -1,6 +1,6 @@
 <ion-content>
-    <ion-navbar color="lightblue"></ion-navbar>
-    <ion-card color="lightblue" class="fullCard" no-margin text-center>
+    <ion-navbar color="secondary"></ion-navbar>
+    <ion-card color="secondary" class="fullCard" no-margin text-center>
       <ion-icon 
         name="md-list" 
         class="icon-padding-top" 
@@ -16,7 +16,7 @@
         text-uppercase 
         (click)="visitSummary(item)"
         class="border-bottom-grey">
-        <ion-icon name="md-walk" item-start color="lightblue"></ion-icon>
+        <ion-icon name="md-walk" item-start color="secondary"></ion-icon>
           <h2><strong>{{item.consult_date | date: 'EEEE, dd-MMM-yy'}}</strong></h2>
           <p>
             Doctor: {{item.doctors_name}} 

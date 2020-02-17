@@ -19,6 +19,7 @@ export const appId = "test3client";
 const baseUrl = "http://188.117.92.20:3000/";
 
 export const urls = {
+	aboutus: baseUrl + "aboutus",
 	login: baseUrl + "login",
 	consults: baseUrl + "consults",
 	vitals: baseUrl + "vitalsigns",
