@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage} from 'ionic-angular';
+
+import { MastersProvider } from '../../providers/masters'
 /**
  * Generated class for the LocationsPage page.
  *
@@ -10,7 +12,20 @@ import { IonicPage} from 'ionic-angular';
 @IonicPage()
 @Component({
   selector: 'page-location',
-  templateUrl: 'locations.html'
+  templateUrl: 'locations.html',
+  providers: [MastersProvider]
 })
 export class LocationsPage {
+  locations: any;
+  constructor(private  masterProvider: MastersProvider) {
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad LocationsPage');
+    this.masterProvider.getLocations()
+      .then((result:any) => {
+        this.locations = result;
+      })
+  }
+
 }

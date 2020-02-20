@@ -28,16 +28,15 @@ export class MastersProvider {
   }
 
   getLocations(){
-    
-    // return new Promise((resolve, reject) => {
-    //   this.httpApi.getOffices()
-    //     .subscribe((result:any)=>{
-    //       offices = JSON.parse(result._body).data;
-    //       resolve(offices);
-    //     },error=>{
-    //       console.log(error);
-    //       resolve(offices);
-    //     });
-    // });
+    return new Promise((resolve, reject) => {
+      this.httpApi.getLocations()
+        .subscribe((result:any)=>{
+          this.locations = JSON.parse(result._body).data;
+          resolve(this.locations);
+        },error=>{
+          console.log(error);
+          resolve(this.locations);
+        });
+    });
   }
 }

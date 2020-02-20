@@ -20,6 +20,7 @@ const baseUrl = "http://188.117.92.20:3000/";
 
 export const urls = {
 	aboutus: baseUrl + "aboutus",
+	locations: baseUrl + "locations",
 	login: baseUrl + "login",
 	consults: baseUrl + "consults",
 	vitals: baseUrl + "vitalsigns",

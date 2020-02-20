@@ -10,27 +10,15 @@
     </ion-card-header>
   </ion-card>
   <!-- <ion-scroll scrollY="true" id="scroll"> -->
-    <ion-card margin-top>
+    <ion-card margin-top *ngFor="let location of locations">
       <ion-item text-center>
-        <h2>MAIN BRANCH</h2>
+        <h2 text-uppercase>{{location.title}}</h2>
       </ion-item>
       <ion-card-content>
-        <p>Al-Mursalat Area - Abu Bakar St. Riyadh, Kingdom of Saudi Arabia</p>
-        <p>Email: info@alfarabilabs.com</p>
+        <p>{{location.address}}</p>
+        <p>{{location.otherdetails}}</p>
       </ion-card-content>
-      <a ion-button full style="margin-bottom: 0px;" href="tel:00966114533356" color="secondary">CALL US</a>
-    </ion-card>
-    <ion-card margin-top>
-      <ion-item text-center>
-        <h2>SUB BRANCH</h2>
-      </ion-item>
-      <ion-card-content>
-        <p>Olaya - Mussa Bin Nasseer St.
-          Cerecon Bldg. Riyadh,
-          Kingdom of Saudi Arabia</p>
-        <p>Email: info@daweni.com.sa</p>
-      </ion-card-content>
-      <a ion-button full style="margin-bottom: 0px;" href="tel:00966114624082" color="secondary">CALL US</a>
+      <a ion-button full style="margin-bottom: 0px;" href="tel:{{location.telephone}}" color="secondary">CALL US</a>
     </ion-card>
   <!-- </ion-scroll> -->
 </ion-content>
