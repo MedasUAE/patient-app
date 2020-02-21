@@ -14,3 +14,25 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.icon-padding-top{
+    padding-top:0.2ex;
+    font-size:35px;
+}
+
+.color-primary{
+    color: color($colors, "primary");
+}
+
+.padding-top{
+    padding-top: 5px;
+}
+
+.border-bottom-grey{
+    border-bottom: thin #D3D3D3 solid;
+}
+
+.border-top-grey{
+    border-top: thin #D3D3D3 solid;
+}
+
