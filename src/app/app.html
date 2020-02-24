@@ -1,7 +1,7 @@
 <ion-menu [content]="content">
   <ion-content >
-    <img style="width: 100%;height: 100px;object-fit: contain;" src="../assets/imgs/logo.png">
-    <ion-grid margin-vertical no-padding>
+    <img style="width: 100%;height: 150px;object-fit: contain;" src="../assets/imgs/logo.png" margin-top>
+    <ion-grid margin-vertical no-padding style="height: 10vh;">
       <ion-row>
         <ion-col text-center>
           <span style="width: 100%; color: grey">{{version}}</span>
@@ -9,7 +9,7 @@
       </ion-row>
     </ion-grid>
     
-    <ion-grid margin-vertical no-padding>
+    <ion-grid padding-horizontal>
       <ion-row class="border-bottom-grey border-top-grey" >
         <ion-col  col-3 text-center>
           <ion-icon name="ios-pin" class="icon-padding-top color-primary"></ion-icon>

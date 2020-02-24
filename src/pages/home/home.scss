@@ -1,13 +1,13 @@
 page-home {
     .content{
         // background-image: linear-gradient(#004b8a, #004b8a); 
-        background-image: url('../../assets/imgs/background.jpg');
-        background-size:fill;
+        background: url('../../assets/imgs/background.jpg') no-repeat center;
+        background-size: cover;
         // background-color: color($colors, "light");
     }
     .icon-padding-top{
         padding-top:0.2ex;
-        font-size:40px;
+        font-size:60px;
     }
 
     .toolbar-background-md, .toolbar-background-ios{
@@ -19,7 +19,7 @@ page-home {
     // }
 
     .bg-primary{
-        background-color: color($colors, "primary");
+        background-color: rgba(56, 162, 220, 0.8);
         color: white
     }
 
