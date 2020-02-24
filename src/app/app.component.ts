@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { appVersion } from '../providers/system.constants'
 // import { LoginPage } from '../pages/login/login';
 
 @Component({
@@ -14,20 +15,20 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any;
-
+  version: string;
   pages: Array<{title: string, component: any}>;
 
   constructor(
     public platform: Platform, 
     public statusBar: StatusBar, 
     public splashScreen: SplashScreen) {
-    this.initializeApp();
-
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
-    ];
+      this.initializeApp();
+      this.version = appVersion;
+      // used for an example of ngFor and navigation
+      this.pages = [
+        { title: 'Home', component: HomePage },
+        { title: 'List', component: ListPage }
+      ];
 
   }
 

@@ -15,6 +15,7 @@ export const sysOptions = {
 };
 
 export const appId = "farabi";
+export const appVersion = "v1.0";
 
 const baseUrl = "http://46.151.211.36:3005/";
 

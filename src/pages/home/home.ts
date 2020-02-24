@@ -33,15 +33,15 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    console.log("ionViewDidLoad HomePage");
-    const toolbars = document.getElementsByClassName('toolbar');
-    let height = 0;
-    for (let index = 0; index < toolbars.length; index++) {
-      if(toolbars[index].clientHeight > 0 || toolbars[index].clientHeight > height)
-      height = toolbars[index].clientHeight;
-    }
-    document.getElementById("homescroll").style.height = window.innerHeight - height - document.getElementsByName("profile")[0].clientHeight - document.getElementsByName("logo")[0].clientHeight + "px";
-    console.log(document.getElementById("homescroll").style.height);
+    // console.log("ionViewDidLoad HomePage");
+    // const toolbars = document.getElementsByClassName('toolbar');
+    // let height = 0;
+    // for (let index = 0; index < toolbars.length; index++) {
+    //   if(toolbars[index].clientHeight > 0 || toolbars[index].clientHeight > height)
+    //   height = toolbars[index].clientHeight;
+    // }
+    // document.getElementById("homescroll").style.height = window.innerHeight - height - document.getElementsByName("profile")[0].clientHeight - document.getElementsByName("logo")[0].clientHeight + "px";
+    // console.log(document.getElementById("homescroll").style.height);
   }
   
 

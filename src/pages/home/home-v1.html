@@ -1,0 +1,119 @@
+<ion-content>
+  <ion-navbar style="background:transparent;">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end [hidden]="!profile.patient_name">
+      <button ion-button icon-only color="royal" (click)="logout()">
+        <ion-icon name="md-log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end [hidden]="profile.patient_name">
+      <button ion-button icon-only color="royal" (click)="login()">
+        <ion-icon name="md-log-in"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-grid name="profile" style="margin-top:-10px;" [hidden]="!profile.patient_name">
+    <ion-row>
+      <ion-col text-center style="padding-top: 0px" (click)="myprofile()">
+        <button ion-button color="primary" clear small>My Profile</button>
+        <h1 no-margin>{{profile.patient_name}}</h1>
+        <p no-margin>{{profile.sex}}, DOB: {{profile.date_of_birth | date : 'dd, MMM-yyyy'}}</p>
+        <p no-margin>Medical Record Number: {{profile.op_number}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid name="logo" style="margin-top:-10px;" [hidden]="profile.patient_name">
+    <ion-row>
+      <ion-col text-center style="padding-top: 0px">
+        <img src="../assets/imgs/logo.png" style="width: 500px;height: 100px;object-fit: contain;">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- <ion-grid style="height: 80%" > -->
+  <ion-scroll scrollY="true" id="homescroll">
+    <ion-grid>
+      <ion-row class="top-left-border top-right-border" style="margin-top: 1px;" (click)="myconsultation()">
+        <ion-col class="bg-primary top-left-border" col-3 text-center>
+          <ion-icon name="calendar" class="icon-padding-top"></ion-icon>
+        </ion-col>
+        <ion-col text-uppercase class="bg-primary top-right-border" style="margin-left: -1px;">
+          <h4>My consultation</h4>
+          <!-- <h4 translate>BOOK_APPOINTMENT</h4>  -->
+          <small>
+            <p>View previous medical history</p>
+          </small>
+        </ion-col>
+      </ion-row>
+      <ion-row style="margin-top: 1px;" (click)="laborder()">
+        <ion-col class="bg-primary" col-3 text-center>
+          <ion-icon name="ios-paper" class="icon-padding-top"></ion-icon>
+        </ion-col>
+        <ion-col text-uppercase class="bg-primary" style="margin-left: -1px;">
+          <h4>My Reports</h4>
+          <small>
+            <p>View lab reports</p>
+          </small>
+        </ion-col>
+      </ion-row>
+      <ion-row style="margin-top: 1px;" (click)="doctors()">
+        <ion-col class="bg-primary" col-3 text-center>
+          <ion-icon name="people" class="icon-padding-top"></ion-icon>
+        </ion-col>
+        <ion-col text-uppercase class="bg-primary" style="margin-left: -1px;">
+          <h4>Book Appointment</h4>
+          <small>
+            <p>Book appointment with doctors</p>
+          </small>
+        </ion-col>
+      </ion-row>
+      <ion-row style="margin-top: 1px;" (click)="services()">
+        <ion-col class="bg-primary" col-3 text-center>
+          <ion-icon name="medkit" class="icon-padding-top"></ion-icon>
+        </ion-col>
+        <ion-col text-uppercase class="bg-primary" style="margin-left: -1px;">
+          <h4>services</h4>
+          <small>
+            <p>Services available in our clinic</p>
+          </small>
+        </ion-col>
+      </ion-row>
+      <ion-row style="margin-top: 1px;" (click)="insurance()">
+        <ion-col class="bg-primary" col-3 text-center>
+          <ion-icon name="list-box" class="icon-padding-top"></ion-icon>
+        </ion-col>
+        <ion-col text-uppercase class="bg-primary" style="margin-left: -1px;">
+          <h4>Insurances</h4>
+          <small>
+            <p>Available insurance companies</p>
+          </small>
+        </ion-col>
+      </ion-row>
+      <ion-row style="margin-top: 1px;" (click)="aboutus()">
+        <ion-col class="bg-primary" col-3 text-center>
+          <ion-icon name="ios-flower" class="icon-padding-top"></ion-icon>
+        </ion-col>
+        <ion-col text-uppercase class="bg-primary" style="margin-left: -1px;">
+          <h4>About Us</h4>
+          <small>
+            <p>Know more about us</p>
+          </small>
+        </ion-col>
+      </ion-row>
+      <ion-row (click)="locations()" class="bottom-left-border bottom-left-border bottom-right-border" style="margin-top: 1px;">
+        <ion-col class="bg-primary bottom-left-border" col-3 text-center>
+          <ion-icon name="ios-pin" class="icon-padding-top"></ion-icon>
+        </ion-col>
+        <ion-col text-uppercase class="bg-primary bottom-right-border" style="margin-left: -1px;">
+          <h4>Locations</h4>
+          <small>
+            <p>Find the locations of our clinics </p>
+          </small>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-scroll>
+</ion-content>
