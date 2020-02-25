@@ -48,6 +48,20 @@ export class ConsultSummaryProvider {
     });
   }
 
+  prescription(consult_id){
+    let prescription = [];
+    return new Promise((resolve, reject) => {
+      this.httpApi.getPrescription(consult_id)
+        .subscribe((result:any)=>{
+          prescription = JSON.parse(result._body).data;
+          resolve(prescription)
+        },error=>{
+          console.log(error);
+          reject(prescription)
+        });
+    });
+  }
+
   patientDetails(){
     let profile: any = localStorage.getItem('profile')
     if(!profile) return;

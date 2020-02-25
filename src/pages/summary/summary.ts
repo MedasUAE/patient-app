@@ -62,6 +62,15 @@ export class SummaryPage {
             console.log(result);
             // this.load.dismiss();
           })
+          .catch(error=>{});  
+          
+          this.consultSummary.prescription(this.consult_id)
+          .then((result:any) => {
+            
+            this.prescription = result;
+            console.log(result);
+            // this.load.dismiss();
+          })
           .catch(error=>{});       
       })
       .catch(error=>{})
