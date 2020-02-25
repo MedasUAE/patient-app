@@ -21,7 +21,7 @@ import { urls } from "../../providers/system.constants";
   providers: [LabProvider, FileTransfer, File, FileOpener]
 })
 export class LabResultPage {
-  workbench = 'lab';
+  workbench = '';
   consult_id;
   office_id;
   test_name;
@@ -45,6 +45,7 @@ export class LabResultPage {
         this.profile_type = this.navParams.get('profile_type');
         this.test_name = this.navParams.get('test_Name');
         this.test_id = this.navParams.get('labtest_id');
+        
       }
 
   ionViewDidLoad() {
@@ -63,6 +64,7 @@ export class LabResultPage {
           .then((result:any) => {
             this.labresult = result.labResult;
             this.radiologyresult = result.radiologyResult;
+            (this.labresult.length) ? this.workbench = 'lab' : this.workbench = 'radiology'
             this.load.dismiss();
           });
 

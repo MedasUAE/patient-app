@@ -16,7 +16,7 @@
       </ion-item>
       <ion-card-content>
         <p>{{location.address}}</p>
-        <p>{{location.otherdetails}}</p>
+        <a (click)="openmap(location.otherdetails)">{{location.otherdetails}}</a>
       </ion-card-content>
       <a ion-button full style="margin-bottom: 0px;" href="tel:{{location.telephone}}" color="secondary">CALL US</a>
     </ion-card>

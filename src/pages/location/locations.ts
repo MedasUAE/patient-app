@@ -28,4 +28,8 @@ export class LocationsPage {
       })
   }
 
+  openmap(url){
+    window.open(url)
+  }
+
 }

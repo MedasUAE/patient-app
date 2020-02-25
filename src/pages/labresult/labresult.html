@@ -7,12 +7,12 @@
       {{test_name}}
     </ion-card-header>
     <ion-segment [(ngModel)]="workbench">
-      <ion-segment-button value="lab">
+      <!-- <ion-segment-button value="lab" [hidden]="!labresult.length">
         Lab
       </ion-segment-button>
-      <ion-segment-button value="radiology">
+      <ion-segment-button value="radiology" [hidden]="labresult.length">
         Radiology
-      </ion-segment-button>
+      </ion-segment-button> -->
       <!-- <ion-segment-button value="download">
         Download
       </ion-segment-button> -->
@@ -37,17 +37,14 @@
     </div>
 
     <!-- download -->
-    <div *ngIf="workbench == 'download'">
+    <div *ngIf="workbench == 'radiology'">
       <ion-list>
         <ion-item 
-          *ngFor="let file of reportfiles" 
+          *ngFor="let result of radiologyresult" 
           text-uppercase 
           class="border-bottom-grey"
-          (click) = "download(file)"
         >
-        <h3>{{file.reportName}}</h3>
-        <p><small>{{file.fileName}}</small></p>
-        <ion-icon name="md-download" item-end color="secondary"></ion-icon>
+        <span [innerHTML]="result.remarks"></span>
         </ion-item>
       </ion-list>
     </div>
