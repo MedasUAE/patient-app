@@ -3,8 +3,10 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { version } from '../providers/system.constants'
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+// import { TitleCasePipe } from '@angular/common'; 
 // import { LoginPage } from '../pages/login/login';
 
 @Component({
@@ -16,19 +18,38 @@ export class MyApp {
   rootPage: any;
 
   pages: Array<{title: string, component: any}>;
-
+  version: string;
   constructor(
     public platform: Platform, 
     public statusBar: StatusBar, 
     public splashScreen: SplashScreen) {
-    this.initializeApp();
+      this.initializeApp();
+      this.version = version;
+      // used for an example of ngFor and navigation
+      this.pages = [
+        { title: 'Home', component: HomePage },
+        { title: 'List', component: ListPage }
+      ];
 
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
-    ];
+  }
 
+  openURL(url){
+    switch (url) {
+      case 'facebook':
+        window.open('https://www.facebook.com/Dawenimedicalclinics/')
+        break;
+      case 'twitter':
+        window.open('https://www.facebook.com/Dawenimedicalclinics/')
+        break;
+      case 'snapchat':
+        window.open('https://www.facebook.com/Dawenimedicalclinics/')
+        break;
+      case 'aboutus':
+          window.open('http://www.daweni.com.sa/')
+          break;
+      default:
+        break;
+    }
   }
 
   initializeApp() {

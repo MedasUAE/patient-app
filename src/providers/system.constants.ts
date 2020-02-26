@@ -15,6 +15,7 @@ export const sysOptions = {
 };
 
 export const appId = "test3client";
+export const version = "0.0.2";
 
 const baseUrl = "http://188.117.92.20:3000/";
 

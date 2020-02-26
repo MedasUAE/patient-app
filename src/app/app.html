@@ -1,9 +1,35 @@
 <ion-menu [content]="content">
   <ion-content>
-    <img src="../assets/imgs/logo.png">
+    <img src="../assets/imgs/logo.png" style="width: 100%;height: 20%;object-fit: contain;">
+    <div text-center padding-top style="color:grey; height:15%">v {{version}}</div>
+    <ion-grid>
+      <ion-row class="top-left-border top-right-border" style="margin-top: 1px;" (click)="openURL('facebook')">
+        <ion-col class="bg-primary top-left-border" text-center>
+          <ion-icon name="logo-facebook" class="icon-big facebook"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row class="top-left-border top-right-border" style="margin-top: 1px;" (click)="openURL('twitter')">
+        <ion-col class="bg-primary top-left-border" text-center>
+          <ion-icon name="logo-twitter" class="icon-big twitter"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row class="top-left-border top-right-border" style="margin-top: 1px;" (click)="openURL('snapchat')">
+        <ion-col class="bg-primary top-left-border" text-center>
+          <ion-icon name="logo-snapchat" class="icon-big snapchat"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <!-- <ion-row padding-top>
+        <ion-col>
+          <button ion-button 
+            block style="background-color:#01B47D; color:white;" 
+            large round 
+            (click)="openURL('aboutus')">ABOUT US</button>
+        </ion-col>
+      </ion-row> -->
+    </ion-grid>
   </ion-content>
   <ion-footer text-center>
-    <small style="color:#966f4e;">POWERED BY MEDAS SOLUTIONS</small>
+    <small style="color:#966f4e;">POWERED BY MEDAS/UNISIS SOLUTIONS</small>
   </ion-footer>
 </ion-menu>
 
