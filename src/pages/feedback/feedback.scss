@@ -1,0 +1,65 @@
+feedback {
+    .fullCard {
+        width:100%;
+        border-radius: 0;
+    }
+    .border-bottom-grey:not(:last-child){
+        border-bottom: lightgrey 0.5px solid;
+    }
+    .item-inner{
+        border-bottom: none !important;
+    }
+
+    .icon-padding-top{
+        font-size:3.5em;
+    }
+
+    .bg-primary{
+        background-color: rgb(56, 162, 220);
+        color: white
+    }
+
+    .bg-happy{
+        background-color: #01B47D;
+        color: white;
+    }
+
+    .bg-ok{
+        background-color: rgb(220, 195, 56);
+        color: white
+    }
+
+    .bg-sad{
+        background-color: rgb(220, 75, 56);
+        color: white
+    }
+    .active{
+        background-color: grey;
+        color: white
+    }
+
+    .bg-secondary{
+        background-color: color($colors, "secondary");
+        color: white
+    }
+
+    .top-left-border{
+        border: 0px solid transparent;
+        border-top-left-radius: 10px;
+    }
+    
+    .bottom-left-border{
+        border: 0px solid transparent;
+        border-bottom-left-radius: 10px;
+    }
+    .top-right-border{
+        border: 0px solid transparent;
+        border-top-right-radius: 10px;
+    }
+
+    .bottom-right-border{
+        border: 0px solid transparent;
+        border-bottom-right-radius: 10px;
+    }
+
+}

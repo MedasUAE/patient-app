@@ -55,7 +55,7 @@ export class LabResultPage {
       height = toolbars[index].clientHeight;
     }
     
-    document.getElementById("scroll").style.height = window.innerHeight - height - document.getElementsByClassName("fullCard")[0].clientHeight + "px";
+    document.getElementById("scrollResult").style.height = window.innerHeight - height - document.getElementsByClassName("fullCard")[0].clientHeight + "px";
     this.load = this.loader.create({spinner: 'dots',content : 'Loading Details!'});
     this.load.present()
       .then(()=>{
@@ -66,10 +66,10 @@ export class LabResultPage {
             this.load.dismiss();
           });
 
-        // this.labProvider.reportFile(this.consult_id)
-        //   .then((result:any) => {
-        //     this.reportfiles = result;
-        //   })      
+        this.labProvider.reportFile(this.consult_id)
+          .then((result:any) => {
+            this.reportfiles = result;
+          })      
       })
       .catch(error=>{})
   }

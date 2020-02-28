@@ -21,6 +21,7 @@ const baseUrl = "http://46.151.211.36:3005/";
 
 export const urls = {
 	aboutus: baseUrl + "aboutus",
+	promotions: baseUrl + "promotions",
 	locations: baseUrl + "locations",
 	login: baseUrl + "login",
 	consults: baseUrl + "consults",

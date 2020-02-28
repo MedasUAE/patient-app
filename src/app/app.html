@@ -10,7 +10,7 @@
     </ion-grid>
     
     <ion-grid padding-horizontal>
-      <ion-row class="border-bottom-grey border-top-grey" >
+      <ion-row class="border-bottom-grey border-top-grey" (click)="locations()">
         <ion-col  col-3 text-center>
           <ion-icon name="ios-pin" class="icon-padding-top color-primary"></ion-icon>
         </ion-col>
@@ -19,11 +19,11 @@
           <p style="font-size:20px;margin: 0px;">مواقع</p>
         </ion-col>
       </ion-row>
-      <ion-row class="border-bottom-grey">
+      <ion-row class="border-bottom-grey" (click)="aboutus()">
         <ion-col  col-3 text-center>
           <ion-icon name="ios-flower" class="icon-padding-top color-primary"></ion-icon>
         </ion-col>
-        <ion-col text-uppercase class="color-primary" style="margin-left: -1px;">
+        <ion-col text-uppercase class="color-primary">
           <p style="margin: 0px;padding-top: 5px;">ABOUT US</p>
           <p style="font-size:20px;margin: 0px;">معلومات عنا</p>
         </ion-col>
@@ -55,7 +55,7 @@
           <p style="font-size:20px;margin: 0px;">ردود الفعل</p>
         </ion-col>
       </ion-row>
-      <ion-row class="border-bottom-grey">
+      <ion-row class="border-bottom-grey" (click)="shareApp()">
         <ion-col  col-3 text-center>
           <ion-icon name="md-share" class="icon-padding-top color-primary"></ion-icon>
         </ion-col>

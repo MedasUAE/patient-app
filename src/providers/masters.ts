@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpApiProvider } from "./http-api/http-api";
+import { LoadingController } from 'ionic-angular';
 /*
   Generated class for the MastersProvider provider.
 
@@ -11,7 +12,12 @@ import { HttpApiProvider } from "./http-api/http-api";
 export class MastersProvider {
   aboutus: any; 
   locations: any; 
-  constructor(private httpApi: HttpApiProvider){}
+  promotions: any;
+  services = [];
+  load: any;
+  constructor(private httpApi: HttpApiProvider, private loader: LoadingController){
+    this.load = this.loader.create({spinner: 'dots',content : 'Loading Details!'});
+  }
   
   getAboutUs(){
     return new Promise((resolve, reject) => {
@@ -39,4 +45,39 @@ export class MastersProvider {
         });
     });
   }
-}
+
+  getPromotions(){
+    this.load.present()
+    return new Promise((resolve, reject) => {
+      this.httpApi.getPromotions()
+        .subscribe((result:any)=>{
+          this.promotions = JSON.parse(result._body).data;
+          resolve(this.promotions);
+          this.load.dismiss();
+        },error=>{
+          resolve(this.promotions);
+          this.load.dismiss();
+        });
+    });
+  }
+
+  getServices(office_id){
+    this.load.present()
+    return new Promise((resolve, reject) => {
+      this.httpApi.getServices(office_id)
+        .subscribe((result:any)=>{
+            this.services = JSON.parse(result._body).data;
+            resolve(this.services)
+            this.load.dismiss();
+          },error=>{
+            resolve(this.services);
+            this.load.dismiss();
+          });
+    })
+  }
+
+  filterService(name){
+    if(!name) return this.services;
+    return this.services.filter((service:any)=>(service.toLowerCase().indexOf(name.toLowerCase()) >= 0))
+  }
+} 

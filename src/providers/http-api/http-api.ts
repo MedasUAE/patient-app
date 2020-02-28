@@ -23,6 +23,11 @@ export class HttpApiProvider {
     return this.http.get(urls.aboutus ,{headers: this.headers})
   }
 
+  getPromotions(){
+    this.headers.set('accept-version','1.0.0');
+    return this.http.get(urls.promotions ,{headers: this.headers})
+  }
+
   getLocations(){
     this.headers.set('accept-version','1.0.0');
     return this.http.get(urls.locations ,{headers: this.headers})

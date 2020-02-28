@@ -1,13 +1,12 @@
 page-home {
     .content{
-        // background-image: linear-gradient(#004b8a, #004b8a); 
-        background: url('../../assets/imgs/background.jpg') no-repeat center;
+        background-image: linear-gradient(white, lightgrey); 
+        // background: url('../../assets/imgs/background.jpg') no-repeat center;
         background-size: cover;
         // background-color: color($colors, "light");
     }
     .icon-padding-top{
-        padding-top:0.2ex;
-        font-size:60px;
+        font-size:3.5em;
     }
 
     .toolbar-background-md, .toolbar-background-ios{
@@ -19,9 +18,36 @@ page-home {
     // }
 
     .bg-primary{
-        background-color: rgba(56, 162, 220, 0.8);
+        background-color: rgb(56, 162, 220);
         color: white
     }
+
+    .bg-secondary{
+        background-color: color($colors, "secondary");
+        color: white
+    }
+
+    .bg-facebook{
+        background-color: rgba(59, 89, 153, 0.8);
+        color: white;
+    }
+
+    .bg-twitter{
+        background-color: rgba(29, 161, 242, 0.8);
+        color: white;
+    }
+
+    .bg-snapchat{
+        background-color: rgba(255, 252, 0, 0.8);
+        color: grey;
+    }
+
+    .bg-instagram{
+        background-color: rgba(138, 58, 185, 0.8);
+        color: white;
+    }
+
+    
 
     // .row-bottom{
     //     padding-bottom:1px;
@@ -34,6 +60,10 @@ page-home {
 
     ion-footer{
         color: color($colors, "primary")
+    }
+
+    .scroll-content{
+        padding: 0px !important;
     }
 
     .top-left-border{

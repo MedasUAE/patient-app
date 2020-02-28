@@ -7,18 +7,18 @@
       {{test_name}}
     </ion-card-header>
     <ion-segment [(ngModel)]="workbench">
-      <ion-segment-button value="lab">
+     <ion-segment-button value="lab">
         Lab
       </ion-segment-button>
-      <ion-segment-button value="radiology">
+      <!-- <ion-segment-button value="radiology">
         Radiology
-      </ion-segment-button>
-      <!-- <ion-segment-button value="download">
+      </ion-segment-button>  -->
+      <ion-segment-button value="download">
         Download
-      </ion-segment-button> -->
+      </ion-segment-button>
     </ion-segment>
   </ion-card>
-  <ion-scroll scrollY="true" id="scroll">
+  <ion-scroll scrollY="true" id="scrollResult">
     <!-- labs -->
     <div *ngIf="workbench == 'lab'">
       <ion-list>
