@@ -73,17 +73,13 @@ export class MyApp {
 
   private _initTranslate() 
   {
+    if(localStorage.getItem('defaultLang')) {
+      this._translate.setDefaultLang(localStorage.getItem('defaultLang'));
+    } else {
+      this._translate.setDefaultLang('en');
+      localStorage.setItem('defaultLang', 'en')
+    }
      // Set the default language for translation strings, and the current language.
-     this._translate.setDefaultLang('ar');
-
-
-    //  if (this._translate.getBrowserLang() !== undefined) 
-    //  {
-    //      this._translate.use(this._translate.getBrowserLang());
-    //  } 
-    //  else 
-    //  {
-    //      this._translate.use('ar'); // Set your language here
-    //  }
+     
   }
 }

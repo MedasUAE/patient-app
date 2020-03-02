@@ -15,7 +15,7 @@
     <ion-item 
       text-uppercase 
       class="border-bottom-grey">
-        <h3>Medical Record Number</h3>
+        <h3>{{MRN}}</h3>
         <ion-note item-end style="font-size:1.5rem;">
           {{profile.op_number}} 
         </ion-note>
@@ -23,7 +23,7 @@
     <ion-item 
     text-uppercase 
     class="border-bottom-grey">
-      <h3>Gender</h3>
+      <h3>{{GENDER}}</h3>
       <ion-note item-end style="font-size:1.5rem;">
         {{profile.sex}} 
       </ion-note>
@@ -31,7 +31,7 @@
   <ion-item 
     text-uppercase 
     class="border-bottom-grey">
-      <h3>Date of Birth</h3>
+      <h3>{{DOB}}</h3>
       <ion-note item-end style="font-size:1.5rem;">
         {{profile.date_of_birth | date: 'dd-MMM-yyyy'}} 
       </ion-note>
@@ -39,7 +39,7 @@
   <ion-item 
     text-uppercase 
     class="border-bottom-grey">
-      <h3>Mobile</h3>
+      <h3>{{MOBILE}}</h3>
       <ion-note item-end style="font-size:1.5rem;">
         {{profile.mobile}} 
       </ion-note>
@@ -47,7 +47,7 @@
   <ion-item 
     text-uppercase 
     class="border-bottom-grey">
-      <h3>National ID</h3>
+      <h3>{{NATIONALID}}</h3>
       <ion-note item-end style="font-size:1.5rem;">
         {{profile.emirates_id}} 
       </ion-note>
@@ -55,7 +55,7 @@
   <ion-item 
     text-uppercase 
     class="border-bottom-grey">
-      <h3>Registration Date</h3>
+      <h3>{{REGISTRATION_DATE}}</h3>
       <ion-note item-end style="font-size:1.5rem;">
         {{profile.registration_date | date: 'dd-MMM-yyyy'}} 
       </ion-note>
@@ -63,7 +63,7 @@
   <ion-item 
     text-uppercase 
     class="border-bottom-grey">
-      <h3>Insurance</h3>
+      <h3>{{INSURANCE}}</h3>
       <ion-note item-end style="font-size:1.5rem;">
         {{profile.insurar_name}} 
       </ion-note>

@@ -117,8 +117,7 @@ export class HomePage {
 
   private _initialiseTranslation() : void
   {
-    setTimeout(() => 
-    {
+    setTimeout(() => {
       this.language = this.translate.getDefaultLang()
       this.BOOK_APPOINTMENT = this.translate.instant("BOOK_APPOINTMENT");
       this.BOOK_APPOINTMENT_DOCTOR = this.translate.instant("BOOK_APPOINTMENT_DOCTOR");
@@ -141,7 +140,13 @@ export class HomePage {
   }
 
   changeLanguage(){
-    (this.translate.getDefaultLang() == 'en') ? this.translate.setDefaultLang('ar') : this.translate.setDefaultLang('en');
+    if(this.translate.getDefaultLang() == 'en') { 
+      this.translate.setDefaultLang('ar');
+      localStorage.setItem('defaultLang', 'ar')
+    } else {
+      this.translate.setDefaultLang('en');
+      localStorage.setItem('defaultLang', 'en')
+    }
     this._initialiseTranslation();
   }
   
