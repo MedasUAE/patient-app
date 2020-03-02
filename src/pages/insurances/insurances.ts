@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
 import { DoctorsProvider } from '../../providers/doctors';
-// import { HttpApiProvider } from '../../providers/http-api/http-api';
+import { TranslateService } from '@ngx-translate/core';
+
 
 
 /**
@@ -20,7 +21,9 @@ import { DoctorsProvider } from '../../providers/doctors';
 export class InsurancesPage {
   insurances;
   offices;
-  constructor(private doctorProvider: DoctorsProvider) {}
+  INSURANCE: string;
+  BRANCH: string;
+    constructor(private doctorProvider: DoctorsProvider, public translate: TranslateService) {}
 
   ionViewDidLoad() {
     const toolbars = document.getElementsByClassName('toolbar');
@@ -31,6 +34,7 @@ export class InsurancesPage {
     }
     document.getElementById("scroll").style.height = window.innerHeight - document.getElementsByClassName("fullCard")[0].clientHeight - document.getElementsByName("officeSelect")[0].clientHeight + "px";
     
+    this._initialiseTranslation()
     this.doctorProvider.getInsurances()
       .then((result:any)=>{
         this.insurances = result;
@@ -48,6 +52,11 @@ export class InsurancesPage {
 
   onChangeOffice(office){
     this.insurances = this.doctorProvider.filterOffices(office.office_Id);
+  }
+
+  private _initialiseTranslation() : void {
+    this.INSURANCE = this.translate.instant("INSURANCE");
+    this.BRANCH = this.translate.instant("BRANCH");
   }
 
 }

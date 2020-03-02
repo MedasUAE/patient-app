@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController} from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
+
 import { LoginPage } from '../login/login';
 import { PersonalDetailsPage} from '../personal-details/personal-details';
 import { ConsultlistPage} from '../consultlist/consultlist';
@@ -14,16 +16,34 @@ import { LabOrderPage } from '../laborder/laborder';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  // providers: [TranslateService]
+  providers: [TranslateService]
 })
 export class HomePage {
 
   // private translate: TranslateService;
   dashboardLayout;
   profile;
+  BOOK_APPOINTMENT: string;
+  BOOK_APPOINTMENT_DOCTOR: string;
+  MY_PROFILE: string;
+  MRN: string;
+  DOB: string;
+  INSURANCE: string;
+  AVAILABLE_INSURANCE: string;
+  MY_CONSULTATION: string;
+  VIEW_MEDICAL_HISTORY: string;
+  MY_REPORT: string;
+  VIEW_REPORT: string;
+  SERVICES: string;
+  SERVICES_AVAILABLE:  string;
+  ABOUT_US:  string;
+  KNOW_MORE:  string;
+  LOCATION:  string;
+  FIND_LOCATION:  string;
+  language: string;
   constructor(
     public navCtrl: NavController,
-    // translate: TranslateService, 
+    public translate: TranslateService, 
   ) {
       // this.translate = translate;
       // this.translate.use('ar');
@@ -42,6 +62,7 @@ export class HomePage {
     }
     document.getElementById("homescroll").style.height = window.innerHeight - height - document.getElementsByName("profile")[0].clientHeight - document.getElementsByName("logo")[0].clientHeight + "px";
     console.log(document.getElementById("homescroll").style.height);
+    this._initialiseTranslation();
   }
   
 
@@ -92,6 +113,36 @@ export class HomePage {
 
   login(){
     this.navCtrl.push(LoginPage);
+  }
+
+  private _initialiseTranslation() : void
+  {
+    setTimeout(() => 
+    {
+      this.language = this.translate.getDefaultLang()
+      this.BOOK_APPOINTMENT = this.translate.instant("BOOK_APPOINTMENT");
+      this.BOOK_APPOINTMENT_DOCTOR = this.translate.instant("BOOK_APPOINTMENT_DOCTOR");
+      this.MY_PROFILE = this.translate.instant("MY_PROFILE");
+      this.DOB = this.translate.instant("DOB");
+      this.MRN = this.translate.instant("MRN");
+      this.MY_CONSULTATION = this.translate.instant("MY_CONSULTATION");
+      this.VIEW_MEDICAL_HISTORY = this.translate.instant("VIEW_MEDICAL_HISTORY");
+      this.MY_REPORT = this.translate.instant("MY_REPORT");
+      this.VIEW_REPORT = this.translate.instant("VIEW_REPORT");
+      this.SERVICES = this.translate.instant("SERVICES");
+      this.SERVICES_AVAILABLE = this.translate.instant("SERVICES_AVAILABLE");
+      this.INSURANCE = this.translate.instant("INSURANCE");
+      this.AVAILABLE_INSURANCE = this.translate.instant("AVAILABLE_INSURANCE");
+      this.ABOUT_US = this.translate.instant("ABOUT_US");
+      this.KNOW_MORE = this.translate.instant("KNOW_MORE");
+      this.LOCATION = this.translate.instant("LOCATION");
+      this.FIND_LOCATION = this.translate.instant("FIND_LOCATION");
+     }, 250);
+  }
+
+  changeLanguage(){
+    (this.translate.getDefaultLang() == 'en') ? this.translate.setDefaultLang('ar') : this.translate.setDefaultLang('en');
+    this._initialiseTranslation();
   }
   
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
 import { HttpApiProvider } from '../../providers/http-api/http-api';
+import { TranslateService } from '@ngx-translate/core';
 
 import { getCurrentDate } from "../../providers/system.constants";
 // import { BookingDetailsPage } from "../booking-details/booking-details";
@@ -29,12 +30,17 @@ export class DoctorDetailsPage {
   slots;
   patientname: string;
   mobile: number;
+  DEPARTMENT: string;
+  CLINIC: string;
+  MOBILE: string;
+  NAME: string;
   constructor(
     public navCtrl: NavController, 
     private navParams: NavParams,
     public alertCtrl: AlertController,
     public modalCtrl: ModalController,
     public doctorProvider: DoctorsProvider,
+    public translate: TranslateService, 
     public consultProvider: ConsultSummaryProvider,
     public alertProvider: AlertProvider,
     private httpApi: HttpApiProvider) {
@@ -54,6 +60,7 @@ export class DoctorDetailsPage {
     }
     document.getElementById("scroll-doctor").style.height = window.innerHeight - height - document.getElementsByClassName("fullCard")[0].clientHeight + "px";
     
+    this._initialiseTranslation();
     //getting patient details if already login
     const patientDetails = this.consultProvider.patientDetails();
     if(patientDetails){
@@ -86,6 +93,13 @@ export class DoctorDetailsPage {
         this.navCtrl.setRoot(HomePage);
         this.navCtrl.popToRoot();
       });
+  }
+
+  private _initialiseTranslation() : void {
+    this.DEPARTMENT = this.translate.instant("DEPARTMENT");
+    this.CLINIC = this.translate.instant("CLINIC");
+    this.MOBILE = this.translate.instant("MOBILE");
+    this.NAME = this.translate.instant("NAME");
   }
 
 }

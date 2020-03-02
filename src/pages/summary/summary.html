@@ -6,17 +6,17 @@
         style="color:white;font-size: 7rem;">
       </ion-icon>
       <ion-card-header text-center style="font-size:2rem;">
-          VISIT SUMMARY
+          {{VISIT_SUMMARRY}}
       </ion-card-header>
       <ion-segment [(ngModel)]="workbench">
           <ion-segment-button value="casesheet">
-            Case sheet
+            {{CASE_SHEET}}
           </ion-segment-button>
           <ion-segment-button value="vitals">
-            Vitals
+            {{VITALS}}
           </ion-segment-button>
           <ion-segment-button value="medicine">
-            Prescription
+            {{PRESCRIPTIONS}}
           </ion-segment-button>
           <!-- <ion-segment-button value="lab">
             Lab / Radiology
@@ -27,12 +27,12 @@
         <!-- consult summary  -->
         <ion-list text-wrap *ngIf="workbench == 'casesheet'">
           <ion-list-header>
-            Consultation Details
+            {{CONSULTATION_DETAILS}}
           </ion-list-header >
           <ion-item text-capitalize>{{doctor_name}}</ion-item>
-          <ion-list-header text-capitalize>Chief Complaint/HPI</ion-list-header>
+          <ion-list-header text-capitalize>{{CHIEF_COMPLAINT}}</ion-list-header>
           <ion-item text-capitalize>{{consultsummary.present_complaint}}</ion-item>
-          <ion-list-header text-capitalize>Final Diagnosis</ion-list-header>
+          <ion-list-header text-capitalize>{{FINAL_DIAGNOSIS}}</ion-list-header>
           <ion-item text-capitalize>{{consultsummary.icd_desc}}</ion-item>  
         </ion-list>
          <!-- vitals  -->

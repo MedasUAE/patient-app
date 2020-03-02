@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
 import { HttpApiProvider } from '../../providers/http-api/http-api';
+import { TranslateService } from '@ngx-translate/core';
+
 
 /**
  * Generated class for the ServicesPage page.
@@ -16,7 +18,8 @@ import { HttpApiProvider } from '../../providers/http-api/http-api';
 })
 export class ServicesPage {
   services;
-  constructor(private httpApi: HttpApiProvider) {
+  SERVICES: string;
+  constructor(private httpApi: HttpApiProvider, public translate: TranslateService) {
     this.httpApi.getServices("")
       .subscribe((result:any)=>{
           this.services = JSON.parse(result._body).data;
@@ -34,6 +37,11 @@ export class ServicesPage {
       height = toolbars[index].clientHeight;
     }
     document.getElementById("scroll").style.height = window.innerHeight - height - document.getElementsByClassName("fullCard")[0].clientHeight + "px";
+    this._initialiseTranslation()
+  }
+
+  private _initialiseTranslation() : void {
+    this.SERVICES = this.translate.instant("SERVICES");
   }
 
 }

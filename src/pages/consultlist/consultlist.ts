@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
+
 import { SummaryPage } from '../summary/summary';
 import { HttpApiProvider } from "../../providers/http-api/http-api";
 import { LoadingController } from 'ionic-angular';
@@ -19,16 +21,17 @@ import { LoadingController } from 'ionic-angular';
 })
 export class ConsultlistPage {
   load:any;
-  // list =  [{"apt_date":"12-July-2018","doctor":"Dr. Jacob Abraham","clinic":"Deira Clinic","modules":[{"type":"lab","action":"lab","icon":"water","color":"danger"},{"type":"Examination","action":"examination","icon":"paper","color":"secondary"},{"type":"vital","action":"vital","icon":"heart","color":"danger"}]},{"apt_date":"01-June-2018","doctor":"Dr. Omar Abdullah","clinic":"Deira Clinic","modules":[{"type":"lab","action":"lab","icon":"water","color":"danger"},{"type":"Examination","action":"examination","icon":"paper","color":"secondary"},{"type":"vital","action":"vital","icon":"heart","color":"danger"}]},{"apt_date":"13-March-2018","doctor":"Dr. Omar Abdullah","clinic":"Naif Clinic","modules":[{"type":"lab","action":"lab","icon":"water","color":"danger"},{"type":"Examination","action":"examination","icon":"paper","color":"light"},{"type":"vital","action":"vital","icon":"heart","color":"danger"}]},{"apt_date":"01-Jan-2018","doctor":"Dr. Ammara Amber","clinic":"Al Rigga Clinic","modules":[{"type":"lab","action":"lab","icon":"water","color":"danger"},{"type":"Examination","action":"examination","icon":"paper","color":"light"},{"type":"vital","action":"vital","icon":"heart","color":"danger"}]}];
   list;
   op_number;
+  MY_CONSULTATION: string;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public loader: LoadingController,
+    public translate: TranslateService, 
     private httpApi: HttpApiProvider) {
       this.op_number = localStorage.getItem('op_number');
-}
+  }
 
   visitSummary(obj){
     this.navCtrl.push(SummaryPage,{
@@ -40,6 +43,7 @@ export class ConsultlistPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ConsultlistPage');
+    this._initialiseTranslation()
     this.load = this.loader.create({spinner: 'dots',content : 'Loading Consults!'});
     this.load.present()
       .then(()=>{
@@ -51,6 +55,10 @@ export class ConsultlistPage {
           console.log(error);
           this.load.dismiss();
         })});
+  }
+
+  private _initialiseTranslation() : void {
+    this.MY_CONSULTATION = this.translate.instant("MY_CONSULTATION");
   }
 
 }

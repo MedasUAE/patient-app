@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
+
 import { DoctorsProvider } from '../../providers/doctors';
 import { DoctorDetailsPage } from '../../pages/doctor-details/doctor-details';
 /**
@@ -18,10 +20,13 @@ import { DoctorDetailsPage } from '../../pages/doctor-details/doctor-details';
 export class DoctorsPage {
   doctors = [];
   slots = [];
-  offices = []
+  offices = [];
+  DOCTORS:  string;
+  BRANCH:  string;
   constructor(
     public navCtrl: NavController, 
     private doctorProvider: DoctorsProvider, 
+    public translate: TranslateService, 
     public navParams: NavParams) {
   }
 
@@ -33,6 +38,8 @@ export class DoctorsPage {
       height = toolbars[index].clientHeight;
     }
     document.getElementById("scroll").style.height = window.innerHeight - height - document.getElementsByClassName("fullCard")[0].clientHeight - document.getElementsByName("officeSelect")[0].clientHeight + "px";
+    
+    this._initialiseTranslation()
     this.doctorProvider.getDoctors("")
     .then((result:any)=>{
         this.doctors = result;
@@ -54,6 +61,11 @@ export class DoctorsPage {
 
   onChangeOffice(office){
     this.doctors = this.doctorProvider.filterDoctors(office.office_Id);
+  }
+
+  private _initialiseTranslation() : void {
+    this.DOCTORS = this.translate.instant("DOCTORS");
+    this.BRANCH = this.translate.instant("BRANCH");
   }
 
 }

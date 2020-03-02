@@ -3,9 +3,10 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { version } from '../providers/system.constants'
+import { version } from '../providers/system.constants';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { TranslateService } from '@ngx-translate/core';
 // import { TitleCasePipe } from '@angular/common'; 
 // import { LoginPage } from '../pages/login/login';
 
@@ -22,6 +23,7 @@ export class MyApp {
   constructor(
     public platform: Platform, 
     public statusBar: StatusBar, 
+    public _translate: TranslateService,
     public splashScreen: SplashScreen) {
       this.initializeApp();
       this.version = version;
@@ -39,10 +41,13 @@ export class MyApp {
         window.open('https://www.facebook.com/Dawenimedicalclinics/')
         break;
       case 'twitter':
-        window.open('https://www.facebook.com/Dawenimedicalclinics/')
+        window.open('https://www.twitter.com/daweni_medical/')
         break;
       case 'snapchat':
-        window.open('https://www.facebook.com/Dawenimedicalclinics/')
+        window.open('https://www.snapchat.com/add/daweni_medical')
+        break;
+      case 'instagram':
+        window.open('https://www.instagram.com/daweni_medical/');
         break;
       case 'aboutus':
           window.open('http://www.daweni.com.sa/')
@@ -58,6 +63,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this._initTranslate();
       this.rootPage = HomePage
       // (localStorage.getItem('profile') && localStorage.getItem('token')) ? this.rootPage = HomePage : this.rootPage = LoginPage;
     });
@@ -65,9 +71,19 @@ export class MyApp {
     
   }
 
-  // openPage(page) {
-  //   // Reset the content nav to have just this page
-  //   // we wouldn't want the back button to show in this scenario
-  //   this.nav.setRoot(page.component);
-  // }
+  private _initTranslate() 
+  {
+     // Set the default language for translation strings, and the current language.
+     this._translate.setDefaultLang('ar');
+
+
+    //  if (this._translate.getBrowserLang() !== undefined) 
+    //  {
+    //      this._translate.use(this._translate.getBrowserLang());
+    //  } 
+    //  else 
+    //  {
+    //      this._translate.use('ar'); // Set your language here
+    //  }
+  }
 }

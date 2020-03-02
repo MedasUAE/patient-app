@@ -6,7 +6,7 @@
       style="color:white;font-size: 7rem;">
     </ion-icon>
     <ion-card-header text-center text-uppercase style="font-size:2rem;">
-        Locations
+        {{LOCATION}}
     </ion-card-header>
   </ion-card>
   <!-- <ion-scroll scrollY="true" id="scroll"> -->
@@ -16,9 +16,21 @@
       </ion-item>
       <ion-card-content>
         <p>{{location.address}}</p>
-        <a (click)="openmap(location.otherdetails)">{{location.otherdetails}}</a>
       </ion-card-content>
-      <a ion-button full style="margin-bottom: 0px;" href="tel:{{location.telephone}}" color="secondary">CALL US</a>
+      <ion-row>
+        <ion-col text-center>
+          <button ion-button icon-start clear (click)="openmap(location.otherdetails)">
+            <ion-icon name="map"></ion-icon>
+            <div>Map</div>
+          </button>
+        </ion-col>
+        <ion-col text-center>
+          <a ion-button icon-start clear href="tel:{{location.telephone}}">
+            <ion-icon name="call"></ion-icon>
+            <div>Call</div>
+          </a>
+        </ion-col>
+      </ion-row>
     </ion-card>
   <!-- </ion-scroll> -->
 </ion-content>

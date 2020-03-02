@@ -5,13 +5,13 @@
     <ion-icon name="card" class="icon-padding-top" style="color:white;font-size: 10rem;">
     </ion-icon>
     <ion-card-header text-center style="font-size:2rem;">
-      INSURANCES
+      {{INSURANCE}}
     </ion-card-header>
   </ion-card>
   <!-- office list -->
   <ion-list name="officeSelect" no-margin>
     <ion-item>
-      <ion-label>BRANCH</ion-label>
+      <ion-label>{{BRANCH}}</ion-label>
       <ion-select [(ngModel)]="selectedOffice" (ionChange)="onChangeOffice($event)">
         <ion-option text-wrap *ngFor="let office of offices" [value]="office">{{office.office_Name}}</ion-option>
       </ion-select>

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
-import { ConsultSummaryProvider } from '../../providers/consultSummary'
+import { ConsultSummaryProvider } from '../../providers/consultSummary';
+import { TranslateService } from '@ngx-translate/core';
+
 
 /**
  * Generated class for the SummaryPage page.
@@ -25,10 +27,18 @@ export class SummaryPage {
   prescription = [];
   consultsummary = {"present_complaint":"-","icd_desc":"-","diagnosis_category":"P","type":"F"};
   load:any;
+  VISIT_SUMMARRY: string;
+  CASE_SHEET: string;
+  CONSULTATION_DETAILS: string;
+  CHIEF_COMPLAINT: string;
+  FINAL_DIAGNOSIS: string;
+  VITALS: string;
+  PRESCRIPTIONS: string;
 
   constructor(
       public navCtrl: NavController,
       public navParams: NavParams,
+      public translate: TranslateService, 
       private consultSummary: ConsultSummaryProvider,
       public loader: LoadingController) {
         this.consult_id = this.navParams.get('consult_id');
@@ -45,6 +55,8 @@ export class SummaryPage {
     }
     
     document.getElementById("scroll").style.height = window.innerHeight - height - document.getElementsByClassName("fullCard")[0].clientHeight + "px";
+    
+    this._initialiseTranslation()
     this.load = this.loader.create({spinner: 'dots',content : 'Loading Details!'});
     this.load.present()
       .then(()=>{
@@ -57,23 +69,28 @@ export class SummaryPage {
           .catch(error=>{})
         this.consultSummary.vitalSigns(this.consult_id)
           .then((result:any) => {
-            
             this.vitalsigns = result;
-            console.log(result);
             // this.load.dismiss();
           })
           .catch(error=>{});  
           
           this.consultSummary.prescription(this.consult_id)
           .then((result:any) => {
-            
             this.prescription = result;
-            console.log(result);
-            // this.load.dismiss();
           })
           .catch(error=>{});       
       })
       .catch(error=>{})
+  }
+
+  private _initialiseTranslation() : void {
+    this.VISIT_SUMMARRY = this.translate.instant("VISIT_SUMMARRY");
+    this.CASE_SHEET = this.translate.instant("CASE_SHEET");
+    this.CONSULTATION_DETAILS = this.translate.instant("CONSULTATION_DETAILS");
+    this.CHIEF_COMPLAINT = this.translate.instant("CHIEF_COMPLAINT");
+    this.FINAL_DIAGNOSIS = this.translate.instant("FINAL_DIAGNOSIS");
+    this.PRESCRIPTIONS = this.translate.instant("PRESCRIPTIONS");
+    this.VITALS = this.translate.instant("VITALS");    
   }
 
 }

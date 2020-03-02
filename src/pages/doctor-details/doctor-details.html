@@ -11,8 +11,8 @@
     <!-- doctor -->
     <ion-list>
       <ion-item class="border-bottom-grey" text-wrap>
-        <p><strong>Department:</strong> {{doctor.department_name}} ({{doctor.doctor_type}})</p>
-        <p><strong>Clinic:</strong> {{doctor.office_Name}}</p>
+        <p><strong>{{DEPARTMENT}}:</strong> {{doctor.department_name}} ({{doctor.doctor_type}})</p>
+        <p><strong>{{CLINIC}}:</strong> {{doctor.office_Name}}</p>
       </ion-item>
       <ion-item class="border-bottom-grey" text-uppercase>
         <ion-row>
@@ -32,12 +32,12 @@
       </ion-item>
       <ion-item-divider color="light">Enter Patient Details</ion-item-divider>
       <ion-item>
-        <ion-label>Name</ion-label>
+        <ion-label>{{NAME}}</ion-label>
         <ion-input type="text" name="patientname" [(ngModel)]="patientname"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label>Mobile</ion-label>
+        <ion-label>{{MOBILE}}</ion-label>
         <ion-input type="tel" name="mobile" [(ngModel)]="mobile"></ion-input>
       </ion-item>
       <ion-item class="border-bottom-grey">
