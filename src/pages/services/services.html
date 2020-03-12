@@ -12,13 +12,22 @@
       SERVICES
     </ion-card-header>
   </ion-card>
+  <ion-segment [(ngModel)]="workbench">
+    <ion-segment-button value="profile">
+      Profile
+    </ion-segment-button>
+    <ion-segment-button value="services">
+      Services
+    </ion-segment-button>
+  </ion-segment>
   <ion-searchbar
-      id="searchBar"
-      [(ngModel)]="myInput"
-      [showCancelButton]="shouldShowCancel"
-      (ionInput)="onInput($event)"
-      (ionCancel)="onCancel($event)">
-    </ion-searchbar>
+    id="searchBar"
+    [(ngModel)]="myInput"
+    [showCancelButton]="shouldShowCancel"
+    (ionInput)="onInput($event)"
+    (ionCancel)="onCancel($event)">
+  </ion-searchbar>
+  
   <ion-scroll scrollY="true" id="scrollService">
     <!-- services -->
     <ion-list>

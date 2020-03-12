@@ -117,6 +117,9 @@
     </ion-row>
 
   </ion-grid>
+  <ion-fab top right [hidden] = "!profile.patient_name" (click)="logout()">
+    <button ion-fab mini><ion-icon name="log-out"></ion-icon></button>
+  </ion-fab>
 </ion-content>
 
 <ion-footer text-center>
