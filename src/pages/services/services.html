@@ -12,11 +12,11 @@
       SERVICES
     </ion-card-header>
   </ion-card>
-  <ion-segment [(ngModel)]="workbench">
-    <ion-segment-button value="profile">
+  <ion-segment [(ngModel)]="type">
+    <ion-segment-button value="profile" (click)="showList()">
       Profile
     </ion-segment-button>
-    <ion-segment-button value="services">
+    <ion-segment-button value="service" (click)="showList()">
       Services
     </ion-segment-button>
   </ion-segment>
@@ -32,7 +32,7 @@
     <!-- services -->
     <ion-list>
       <ion-item 
-        *ngFor="let service of services" 
+        *ngFor="let service of result" 
         text-uppercase 
         class="border-bottom-grey">
           <ion-icon name="list" item-start color="secondary"></ion-icon>

@@ -98,9 +98,9 @@ export class HttpApiProvider {
     return this.http.get(urls.profile + "/" + consultid,{headers: this.headers})
   }
 
-  getServices(officeid){
+  getServices(officeid, type){
     this.headers.set('accept-version','1.0.0');
-    return this.http.get(urls.services + "/" + officeid,{headers: this.headers})
+    return this.http.get(urls.services + "/" + officeid + "?type=" + type,{headers: this.headers})
   }
 
   getInsurars(){

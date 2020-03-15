@@ -14,6 +14,7 @@ export class MastersProvider {
   locations: any; 
   promotions: any;
   services = [];
+  profiles = [];
   load: any;
   constructor(private httpApi: HttpApiProvider, private loader: LoadingController){
     this.load = this.loader.create({spinner: 'dots',content : 'Loading Details!'});
@@ -64,13 +65,26 @@ export class MastersProvider {
   getServices(office_id){
     this.load.present()
     return new Promise((resolve, reject) => {
-      this.httpApi.getServices(office_id)
+      this.httpApi.getServices(office_id,'service')
         .subscribe((result:any)=>{
             this.services = JSON.parse(result._body).data;
             resolve(this.services)
-            this.load.dismiss();
           },error=>{
             resolve(this.services);
+          });
+    })
+  }
+
+  getProfile(office_id){
+    this.load.present()
+    return new Promise((resolve, reject) => {
+      this.httpApi.getServices(office_id,'profile')
+        .subscribe((result:any)=>{
+            this.profiles = JSON.parse(result._body).data;
+            resolve(this.profiles)
+            this.load.dismiss();
+          },error=>{
+            resolve(this.profiles);
             this.load.dismiss();
           });
     })
@@ -79,5 +93,10 @@ export class MastersProvider {
   filterService(name){
     if(!name) return this.services;
     return this.services.filter((service:any)=>(service.toLowerCase().indexOf(name.toLowerCase()) >= 0))
+  }
+
+  filterProfile(name){
+    if(!name) return this.profiles;
+    return this.profiles.filter((profile:any)=>(profile.toLowerCase().indexOf(name.toLowerCase()) >= 0))
   }
 } 
