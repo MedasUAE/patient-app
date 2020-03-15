@@ -32,12 +32,12 @@
     <!-- services -->
     <ion-list>
       <ion-item 
-        *ngFor="let service of result" 
+        *ngFor="let item of result" 
         text-uppercase 
         class="border-bottom-grey">
           <ion-icon name="list" item-start color="secondary"></ion-icon>
-          <h3>{{service}}</h3>
-          <ion-note item-end>Price</ion-note>
+          <h3>{{item.name}}</h3>
+          <ion-note item-end>{{item.price}}</ion-note>
       </ion-item>
     </ion-list>
   </ion-scroll>

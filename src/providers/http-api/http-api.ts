@@ -94,12 +94,12 @@ export class HttpApiProvider {
   }
 
   getMyProfile(consultid){
-    this.headers.set('accept-version','1.0.0');
+    this.headers.set('accept-version','2.0.0');
     return this.http.get(urls.profile + "/" + consultid,{headers: this.headers})
   }
 
   getServices(officeid, type){
-    this.headers.set('accept-version','1.0.0');
+    this.headers.set('accept-version','2.0.0');
     return this.http.get(urls.services + "/" + officeid + "?type=" + type,{headers: this.headers})
   }
 
