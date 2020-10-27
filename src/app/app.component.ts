@@ -46,7 +46,7 @@ export class MyApp {
   }
 
   shareApp(){
-    this.socialSharing.share("Share the App", null, null, "https://play.google.com/store/apps/details?id=medas.app.daweni")
+    this.socialSharing.share("Share the App", null, null, "https://play.google.com/store/apps/details?id=medas.farabi")
   }
 
   initializeApp() {

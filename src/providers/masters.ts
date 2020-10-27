@@ -92,11 +92,11 @@ export class MastersProvider {
 
   filterService(name){
     if(!name) return this.services;
-    return this.services.filter((service:any)=>(service.toLowerCase().indexOf(name.toLowerCase()) >= 0))
+    return this.services.filter((service:any)=>(service.name.toLowerCase().indexOf(name.toLowerCase()) >= 0))
   }
 
   filterProfile(name){
     if(!name) return this.profiles;
-    return this.profiles.filter((profile:any)=>(profile.toLowerCase().indexOf(name.toLowerCase()) >= 0))
+    return this.profiles.filter((profile:any)=>(profile.name.toLowerCase().indexOf(name.toLowerCase()) >= 0))
   }
 } 

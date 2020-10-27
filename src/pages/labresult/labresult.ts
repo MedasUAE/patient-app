@@ -77,6 +77,7 @@ export class LabResultPage {
   
 
   download(file) {
+    console.log(file);
     const fileTransfer: FileTransferObject = this.transfer.create();
     const url = urls.download + "/" + file.fileName;
     

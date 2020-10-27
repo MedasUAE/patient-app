@@ -80,22 +80,22 @@ export class HomePage {
   }
 
   shareApp(){
-    this.socialSharing.share("Share the App", null, null, "https://play.google.com/store/apps/details?id=medas.app.daweni")
+    this.socialSharing.share("Share the App", null, null, "https://play.google.com/store/apps/details?id=medas.farabi")
   }
 
   openUrl(url) {
     switch (url) {
       case 'facebook':
-        window.open('https://www.facebook.com/pages/category/Medical-Center/%D9%85%D8%AE%D8%AA%D8%A8%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%81%D8%A7%D8%B1%D8%A7%D8%A8%D9%8A-%D8%A7%D9%84%D8%B7%D8%A8%D9%8A%D8%A9-227223914350910/')
+        window.open('https://www.facebook.com/pages/category/Medical-Center/%D9%85%D8%AE%D8%AA%D8%A8%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%81%D8%A7%D8%B1%D8%A7%D8%A8%D9%8A-%D8%A7%D9%84%D8%B7%D8%A8%D9%8A%D8%A9-227223914350910/', '_self')
         break;
       case 'twitter':
-          window.open('https://mobile.twitter.com/alfarabilab')
+          window.open('https://mobile.twitter.com/Farabilabs', '_system', 'location=yes')
           break;
       case 'instagram':
-          window.open('https://instagram.com/alfarabilabs?igshid=pgj0oopv0dqb')
+          window.open('https://instagram.com/alfarabilabs?igshid=pgj0oopv0dqb', '_self')
           break;
       case 'snapchat':
-        window.open('https://www.snapchat.com/add/alfarabilab')
+        window.open('https://www.snapchat.com/add/alfarabilab', '_self')
         break;
       default:
         break;
