@@ -1,7 +1,7 @@
 <ion-content>
   <ion-grid no-padding>
-    <ion-row style="height: 20vh;"><ion-col text-center><img src="../assets/imgs/logo.png" style="width:80%; height: 20vh; object-fit: contain;" padding></ion-col></ion-row>
-    <ion-row style="height: 80vh;" padding-horizontal>
+    <ion-row style="height: 20vh;" padding-top><ion-col text-center><img src="../assets/imgs/logo.png" style="width:80%; height: 20vh; object-fit: contain;" padding></ion-col></ion-row>
+    <ion-row style="height: 80vh;"> <!-- padding-horizontal -->
       <ion-col >
         <ion-scroll scrollY="true" id="scroll" style="height: 95%;">
           <ion-grid no-padding>
@@ -9,7 +9,7 @@
               <ion-col (click)="laborder()" class="bg-primary top-left-border top-right-border" text-center>
                 <ion-icon name="paper" class="icon-padding-top"></ion-icon>
                 <p style="font-size:20px;margin-top:10px;" no-margin>تقاريري المخبرية</p>
-                <p text-uppercase no-margin padding-bottom>My Report(s)</p>
+                <p text-uppercase no-margin padding-bottom>My Reports</p>
               </ion-col>
             </ion-row>
             <ion-row style="margin-top: 1px;">
@@ -29,7 +29,7 @@
                   <p 
                     text-uppercase 
                     no-margin>
-                      Service(1)
+                      Service
                   </p>
               </ion-col>
               <ion-col class="bg-primary " style="margin-left: 1px;" text-center>
