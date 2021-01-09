@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage} from 'ionic-angular';
 
-import { MastersProvider } from '../../providers/masters'
+import { MastersProvider } from '../../providers/masters';
+import { InAppBrowser } from "@ionic-native/in-app-browser";
+
 /**
  * Generated class for the LocationsPage page.
  *
@@ -17,7 +19,7 @@ import { MastersProvider } from '../../providers/masters'
 })
 export class LocationsPage {
   locations: any;
-  constructor(private  masterProvider: MastersProvider) {
+  constructor(private  masterProvider: MastersProvider,private iab: InAppBrowser) {
   }
 
   ionViewDidLoad() {
@@ -29,7 +31,6 @@ export class LocationsPage {
   }
 
   openmap(url){
-    window.open(url)
+    this.iab.create(url, '_system');
   }
-
 }

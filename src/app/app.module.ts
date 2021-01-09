@@ -18,11 +18,13 @@ import { LabOrderPageModule } from "../pages/laborder/laborder.module";
 import { AboutUsPageModule } from "../pages/about-us/about-us.module";
 import { LocationsPageModule } from "../pages/location/locations.module";
 import { FeedbackPageModule } from "../pages/feedback/feedback.module";
+import { QualityPageModule } from "../pages/quality/quality.module";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { HttpApiProvider } from '../providers/http-api/http-api';
+import { InAppBrowser } from "@ionic-native/in-app-browser";
 
 @NgModule({
   declarations: [
@@ -45,6 +47,7 @@ import { HttpApiProvider } from '../providers/http-api/http-api';
     AboutUsPageModule,
     LocationsPageModule,
     FeedbackPageModule,
+    QualityPageModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -56,6 +59,7 @@ import { HttpApiProvider } from '../providers/http-api/http-api';
     StatusBar,
     SplashScreen,
     SocialSharing,
+    InAppBrowser,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpApiProvider,
     

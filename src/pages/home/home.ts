@@ -6,10 +6,12 @@ import { ConsultlistPage} from '../consultlist/consultlist';
 import { FeedbackPage} from '../feedback/feedback';
 import { ServicesPage} from '../services/services';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { InAppBrowser } from "@ionic-native/in-app-browser";
 import { AboutUsPage} from '../about-us/about-us';
 import { LocationsPage } from '../location/locations';
 import { LabOrderPage } from '../laborder/laborder';
 import { EventsPage } from '../events/events';
+import { QualityPage } from '../quality/quality';
 
 @IonicPage()
 @Component({
@@ -23,6 +25,7 @@ export class HomePage {
   promotions = [];
   constructor(
     public navCtrl: NavController,
+    private iab: InAppBrowser,
     private socialSharing: SocialSharing,
   ) {
       this.profile = JSON.parse(localStorage.getItem('profile'));
@@ -62,6 +65,10 @@ export class HomePage {
     this.navCtrl.push(LocationsPage);
   }
 
+  quality(){
+    this.navCtrl.push(QualityPage);
+  }
+
   laborder(){
     if(!this.profile.patient_name) {
       this.navCtrl.push(LoginPage);
@@ -86,16 +93,16 @@ export class HomePage {
   openUrl(url) {
     switch (url) {
       case 'facebook':
-        window.open('https://www.facebook.com/pages/category/Medical-Center/%D9%85%D8%AE%D8%AA%D8%A8%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%81%D8%A7%D8%B1%D8%A7%D8%A8%D9%8A-%D8%A7%D9%84%D8%B7%D8%A8%D9%8A%D8%A9-227223914350910/', '_self')
+        this.iab.create('https://www.facebook.com/pages/category/Medical-Center/%D9%85%D8%AE%D8%AA%D8%A8%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%81%D8%A7%D8%B1%D8%A7%D8%A8%D9%8A-%D8%A7%D9%84%D8%B7%D8%A8%D9%8A%D8%A9-227223914350910/', '_system');
         break;
       case 'twitter':
-          window.open('https://mobile.twitter.com/Farabilabs', '_system', 'location=yes')
-          break;
+        this.iab.create('https://mobile.twitter.com/Farabilabs', '_system')
+        break;
       case 'instagram':
-          window.open('https://instagram.com/alfarabilabs?igshid=pgj0oopv0dqb', '_self')
-          break;
+        this.iab.create('https://instagram.com/alfarabilabs?igshid=pgj0oopv0dqb', '_system')
+        break;
       case 'snapchat':
-        window.open('https://www.snapchat.com/add/alfarabilab', '_self')
+        this.iab.create('https://www.snapchat.com/add/alfarabilab', '_system')
         break;
       default:
         break;
