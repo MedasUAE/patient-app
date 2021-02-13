@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
-import { HttpApiProvider } from '../../providers/http-api/http-api';
+import { MastersProvider } from '../../providers/masters';
 
 /**
  * Generated class for the ServicesPage page.
@@ -12,17 +12,16 @@ import { HttpApiProvider } from '../../providers/http-api/http-api';
 @IonicPage()
 @Component({
   selector: 'page-services',
-  templateUrl: 'services.html'
+  templateUrl: 'services.html',
+  providers: [MastersProvider]
 })
 export class ServicesPage {
   services;
-  constructor(private httpApi: HttpApiProvider) {
-    this.httpApi.getServices("")
-      .subscribe((result:any)=>{
-          this.services = JSON.parse(result._body).data;
-        },error=>{
-          console.log(error);
-      });
+  profiles;
+  result = [];
+  type = 'profile';
+  constructor(private masterProvider: MastersProvider) {
+    
   }
 
   ionViewDidLoad() {
@@ -33,7 +32,36 @@ export class ServicesPage {
       if(toolbars[index].clientHeight > 0 || toolbars[index].clientHeight > height)
       height = toolbars[index].clientHeight;
     }
-    document.getElementById("scroll").style.height = window.innerHeight - height - document.getElementsByClassName("fullCard")[0].clientHeight + "px";
+    document.getElementById("scrollService").style.height = window.innerHeight - height - document.getElementsByClassName("fullCard")[0].clientHeight + document.getElementById("searchBar").clientHeight + "px";
+    this.getList()
+  }
+  
+  onInput(searchText) {
+    if (this.type == 'service') 
+      this.result = this.masterProvider.filterService(searchText.srcElement.value)
+    else if (this.type == 'profile') 
+      this.result = this.masterProvider.filterProfile(searchText.srcElement.value)
+  }
+
+  showList() {
+    (this.type == 'service') ? this.result = this.services : this.result = this.profiles;
+  }
+  
+  private getList() {
+    this.masterProvider.getServices("")
+      .then((result:any)=>{
+          this.services = result;
+        }).catch(error=>{
+          console.log(error);
+      });
+    
+    this.masterProvider.getProfile("")
+      .then((result:any)=>{
+          this.profiles = result;
+          this.result = result;
+        }).catch(error=>{
+          console.log(error);
+      });
   }
 
 }

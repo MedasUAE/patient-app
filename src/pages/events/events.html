@@ -1,0 +1,18 @@
+<ion-content>
+  <ion-navbar color="secondary"></ion-navbar>
+  <ion-card color="secondary" class="fullCard" no-margin text-center>
+    <ion-icon 
+      name="md-megaphone" 
+      style="color:white;font-size: 7rem;">
+    </ion-icon>
+    <ion-card-header text-center text-uppercase style="font-size:2rem;">
+        News and Events
+    </ion-card-header>
+  </ion-card>
+  <ion-scroll scrollY="true" id="scrollPromotion">
+    <ion-card *ngFor="let promotion of promotions" padding-top>
+      <img src='{{promotion}}'>
+    </ion-card>
+  </ion-scroll>
+</ion-content>
+

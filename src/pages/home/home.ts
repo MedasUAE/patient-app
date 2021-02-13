@@ -3,47 +3,35 @@ import { IonicPage, NavController} from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { PersonalDetailsPage} from '../personal-details/personal-details';
 import { ConsultlistPage} from '../consultlist/consultlist';
-import { DoctorsPage} from '../doctors/doctors';
+import { FeedbackPage} from '../feedback/feedback';
 import { ServicesPage} from '../services/services';
-import { InsurancesPage} from '../insurances/insurances';
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { InAppBrowser } from "@ionic-native/in-app-browser";
 import { AboutUsPage} from '../about-us/about-us';
 import { LocationsPage } from '../location/locations';
 import { LabOrderPage } from '../laborder/laborder';
+import { EventsPage } from '../events/events';
+import { QualityPage } from '../quality/quality';
 
 @IonicPage()
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html',
-  // providers: [TranslateService]
+  templateUrl: 'home.html'
 })
 export class HomePage {
 
-  // private translate: TranslateService;
   dashboardLayout;
   profile;
+  promotions = [];
   constructor(
     public navCtrl: NavController,
-    // translate: TranslateService, 
+    private iab: InAppBrowser,
+    private socialSharing: SocialSharing,
   ) {
-      // this.translate = translate;
-      // this.translate.use('ar');
       this.profile = JSON.parse(localStorage.getItem('profile'));
       (!this.profile) ? this.profile = {} : this.profile;
-      // this.dashboardLayout = {"type":"tiles","callnumber":"+971581241954","buttons":{"button_1":{"heading":"MY APPOINTMENTS","dataUrl":"","icon":"calendar","modal":"appointment","avatar":"true","action":"appointment"},"button_2":{"heading":"DOCTORS","dataUrl":"getdoctors","icon":"people","modal":"Card","overlay":true,"action":"navigation"},"button_3":{"heading":"INSURANCES","dataUrl":"getinsurances","icon":"list-box","modal":"List","avatar":true,"action":"list"},"button_4":{"heading":"SERVICES","dataUrl":"getfacilities","icon":"medkit","modal":"Card","avatar":true,"action":"list"},"button_5":{"heading":"MY PROFILE","dataUrl":"getdoctors","icon":"person","modal":"Details","avatar":true,"action":"list"},"button_6":{"heading":"NEWS EVENTS","dataUrl":"getnews","icon":"megaphone","modal":"Card","avatar":true,"action":"list"},"button_7":{"heading":"ABOUT US","dataUrl":"getaboutus","icon":"medical","modal":"Card","avatar":true,"action":"list"}}};
-  }
 
-  ionViewDidLoad() {
-    console.log("ionViewDidLoad HomePage");
-    const toolbars = document.getElementsByClassName('toolbar');
-    let height = 0;
-    for (let index = 0; index < toolbars.length; index++) {
-      if(toolbars[index].clientHeight > 0 || toolbars[index].clientHeight > height)
-      height = toolbars[index].clientHeight;
     }
-    document.getElementById("homescroll").style.height = window.innerHeight - height - document.getElementsByName("profile")[0].clientHeight - document.getElementsByName("logo")[0].clientHeight + "px";
-    console.log(document.getElementById("homescroll").style.height);
-  }
-  
 
   myconsultation(){
     if(!this.profile.patient_name) {
@@ -57,16 +45,16 @@ export class HomePage {
     this.navCtrl.push(PersonalDetailsPage);
   }
 
-  doctors(){
-    this.navCtrl.push(DoctorsPage);
+  feedback(){
+    this.navCtrl.push(FeedbackPage);
   }
 
   services(){
     this.navCtrl.push(ServicesPage);
   }
 
-  insurance(){
-    this.navCtrl.push(InsurancesPage);
+  events(){
+    this.navCtrl.push(EventsPage);
   }
 
   aboutus(){
@@ -75,6 +63,10 @@ export class HomePage {
   
   locations(){
     this.navCtrl.push(LocationsPage);
+  }
+
+  quality(){
+    this.navCtrl.push(QualityPage);
   }
 
   laborder(){
@@ -92,6 +84,29 @@ export class HomePage {
 
   login(){
     this.navCtrl.push(LoginPage);
+  }
+
+  shareApp(){
+    this.socialSharing.share("Share the App", null, null, "https://play.google.com/store/apps/details?id=medas.farabi")
+  }
+
+  openUrl(url) {
+    switch (url) {
+      case 'facebook':
+        this.iab.create('https://www.facebook.com/pages/category/Medical-Center/%D9%85%D8%AE%D8%AA%D8%A8%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%81%D8%A7%D8%B1%D8%A7%D8%A8%D9%8A-%D8%A7%D9%84%D8%B7%D8%A8%D9%8A%D8%A9-227223914350910/', '_system');
+        break;
+      case 'twitter':
+        this.iab.create('https://mobile.twitter.com/Farabilabs', '_system')
+        break;
+      case 'instagram':
+        this.iab.create('https://instagram.com/alfarabilabs?igshid=pgj0oopv0dqb', '_system')
+        break;
+      case 'snapchat':
+        this.iab.create('https://www.snapchat.com/add/alfarabilab', '_system')
+        break;
+      default:
+        break;
+    }
   }
   
 }

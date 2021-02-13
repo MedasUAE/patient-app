@@ -9,12 +9,13 @@ page-doctors {
     .item-inner{
         border-bottom: none !important;
     }
+    ion-select{
+        max-width: 100% !important;
+    }
+    
+    .item {
+        font-size: 1.2rem;
+    }
 }
 
-ion-select{
-    max-width: 100% !important;
-}
 
-.item {
-    font-size: 1.2rem;
-}

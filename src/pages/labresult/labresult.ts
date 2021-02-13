@@ -4,11 +4,11 @@ import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { FileOpener } from '@ionic-native/file-opener';
 
-
 import { LoadingController } from 'ionic-angular';
 import { LabProvider } from '../../providers/labs';
+import { urls } from "../../providers/system.constants";
 /**
- * Generated class for the SummaryPage page.
+ * Generated class for the LabResultPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -55,7 +55,7 @@ export class LabResultPage {
       height = toolbars[index].clientHeight;
     }
     
-    document.getElementById("scroll").style.height = window.innerHeight - height - document.getElementsByClassName("fullCard")[0].clientHeight + "px";
+    document.getElementById("scrollResult").style.height = window.innerHeight - height - document.getElementsByClassName("fullCard")[0].clientHeight + "px";
     this.load = this.loader.create({spinner: 'dots',content : 'Loading Details!'});
     this.load.present()
       .then(()=>{
@@ -65,10 +65,11 @@ export class LabResultPage {
             this.radiologyresult = result.radiologyResult;
             this.load.dismiss();
           });
-        // this.labProvider.reportFile(this.consult_id)
-        //   .then((result:any) => {
-        //     this.reportfiles = result;
-        //   })      
+
+        this.labProvider.reportFile(this.consult_id)
+          .then((result:any) => {
+            this.reportfiles = result;
+          })      
       })
       .catch(error=>{})
   }
@@ -76,12 +77,11 @@ export class LabResultPage {
   
 
   download(file) {
+    console.log(file);
     const fileTransfer: FileTransferObject = this.transfer.create();
-    const url = 'http://46.151.211.36:3005/downloadreport/' + file.fileName;
-    console.log(url, this.file.dataDirectory);
+    const url = urls.download + "/" + file.fileName;
     
     fileTransfer.download(url, this.file.dataDirectory + file.fileName).then((entry) => {
-      console.log('download complete: ' + entry.toURL());
       this.fileOpener.open(entry.toURL(), 'application/pdf')
         .then(() => console.log('File is opened'))
         .catch(e => console.log('Error opening file', e));

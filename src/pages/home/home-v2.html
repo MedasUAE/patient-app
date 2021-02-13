@@ -1,0 +1,63 @@
+<ion-content class="bg-secondary">
+  <ion-navbar style="background:white;">
+      <button ion-button menuToggle>
+          <ion-icon name="menu" color="light"></ion-icon>
+      </button>
+      <ion-buttons end [hidden]="!profile.patient_name">
+          <button ion-button icon-only color="light" (click)="logout()">
+          <ion-icon name="md-log-out"></ion-icon>
+          </button>
+      </ion-buttons>
+      <ion-buttons end [hidden]="profile.patient_name">
+          <button ion-button icon-only color="light" (click)="login()">
+          <ion-icon name="md-log-in"></ion-icon>
+          </button>
+      </ion-buttons>
+  </ion-navbar>
+  <ion-grid style="background:white;">
+    <ion-row padding-horizontal style="margin-top: -10px;">
+      <ion-col style="height: 20vh;" text-center>
+        <img src="../assets/imgs/512X512-onlylogo.jpg" style="height: 100%; width: 50%;">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="bg-secondary" style="margin-top: -20px; border-radius: 10px 10px 0px 0px;">
+    <ion-row padding-horizontal padding-top>
+        <ion-col (click)="laborder()" class="bg-primary top-left-border bottom-left-border" text-center>
+          <ion-icon name="paper" class="icon-padding-top"></ion-icon>
+          <p style="font-size:20px;margin-top:10px;" no-margin>تقريري</p>
+          <p text-uppercase no-margin>My Reports</p>
+        </ion-col>
+        <ion-col (click)="myprofile()" class="bg-primary top-right-border bottom-right-border" style="margin-left: 2px;" text-center>
+          <ion-icon name="paper" class="icon-padding-top"></ion-icon>
+          <p style="font-size:20px;margin-top:10px;" no-margin>ملفي</p>
+          <p text-uppercase no-margin padding-bottom>My Profile</p>
+        </ion-col>
+    </ion-row> 
+  </ion-grid>
+  <ion-grid class="bg-secondary" style="margin-top: -1px;">
+    <ion-row class="" style="margin-top: 1px;" padding-horizontal>
+      <ion-col class="bg-facebook top-left-border bottom-left-border" text-center (click)="openUrl('facebook')">
+        <ion-icon name="logo-facebook" class="icon-padding-top"></ion-icon>
+      </ion-col>
+      <ion-col class="bg-twitter" style="margin-left: 1px;" text-center (click)="openUrl('twitter')">
+        <ion-icon name="logo-twitter" class="icon-padding-top"></ion-icon>
+      </ion-col>
+      <ion-col class="bg-snapchat" style="margin-left: 1px;" text-center (click)="openUrl('snapchat')">
+        <ion-icon name="logo-snapchat" class="icon-padding-top"></ion-icon>
+      </ion-col>
+      <ion-col class="bg-instagram top-right-border bottom-right-border" style="margin-left: 1px;" text-center (click)="openUrl('instagram')">
+        <ion-icon name="logo-instagram" class="icon-padding-top"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row padding-horizontal>
+      <ion-col padding-vertical>
+          <ion-slides loop="true"> 
+              <ion-slide style="background-color: transparent; border-radius: 10px; height: 100%;" *ngFor="let promotion of promotions">
+                  <img src='{{promotion}}' style="border-radius: 10px; object-fit: cover;">
+              </ion-slide>
+          </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,13 +1,14 @@
 <ion-content>
-    <ion-navbar color="lightblue"></ion-navbar>
-    <ion-card color="lightblue" class="fullCard" no-margin text-center>
+    <ion-navbar color="secondary"></ion-navbar>
+    <ion-card color="secondary" class="fullCard" no-margin text-center>
       <ion-icon 
         name="md-list" 
         class="icon-padding-top" 
-        style="color:white;font-size: 10rem;">
+        style="color:white;font-size: 7rem;">
       </ion-icon>
       <ion-card-header text-center style="font-size:2rem;">
-          MY LAB REPORTS 
+        <p no-padding>تقريري</p>
+          MY REPORTS 
       </ion-card-header>
     </ion-card>
     <ion-list >
@@ -16,7 +17,7 @@
         text-uppercase 
         (click)="labresult(item)"
         class="border-bottom-grey">
-        <ion-icon name="ios-document" item-start color="lightblue"></ion-icon>
+        <ion-icon name="ios-document" item-start color="secondary"></ion-icon>
           <h3><strong>{{item.test_Name}}</strong></h3>
           <p>
             {{item.entered_date | date: 'EEEE, dd-MMM-yy'}}

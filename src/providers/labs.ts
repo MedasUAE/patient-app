@@ -26,19 +26,6 @@ export class LabProvider {
     });
   }
 
-  download(file_name) {
-    return new Promise(resolve => {
-      this.httpApi.getDownloadFile(file_name)
-        .subscribe((response:any) => {
-          resolve(response)
-        },error=>{
-          resolve()
-          console.log(error);
-        })
-
-    });
-  }
-
   labOrder(op_number) {
     let result = [];
     return new Promise(resolve => {

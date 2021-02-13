@@ -1,119 +1,127 @@
 <ion-content>
-  <ion-navbar style="background:transparent;">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-buttons end [hidden]="!profile.patient_name">
-      <button ion-button icon-only color="royal" (click)="logout()">
-        <ion-icon name="md-log-out"></ion-icon>
-      </button>
-    </ion-buttons>
-    <ion-buttons end [hidden]="profile.patient_name">
-      <button ion-button icon-only color="royal" (click)="login()">
-        <ion-icon name="md-log-in"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-navbar>
-
-  <ion-grid name="profile" style="margin-top:-10px;" [hidden]="!profile.patient_name">
-    <ion-row>
-      <ion-col text-center style="padding-top: 0px" (click)="myprofile()">
-        <button ion-button color="primary" clear small>My Profile</button>
-        <h1 no-margin>{{profile.patient_name}}</h1>
-        <p no-margin>{{profile.sex}}, DOB: {{profile.date_of_birth | date : 'dd, MMM-yyyy'}}</p>
-        <p no-margin>Medical Record Number: {{profile.op_number}}</p>
-      </ion-col>
+  <ion-grid no-padding>
+    <ion-row style="height: 20vh;" padding-top><ion-col text-center><img src="../assets/imgs/logo.png" style="width:80%; height: 20vh; object-fit: contain;" padding></ion-col></ion-row>
+    <ion-row style="height: 80vh;"> <!-- padding-horizontal -->
+      <ion-col >
+        <ion-scroll scrollY="true" id="scroll" style="height: 100%;">
+          <ion-grid no-padding>
+            <ion-row>
+              <ion-col (click)="laborder()" class="bg-primary top-left-border top-right-border" text-center>
+                <ion-icon name="paper" class="icon-padding-top"></ion-icon>
+                <p style="font-size:20px;margin-top:10px;" no-margin>تقاريري المخبرية</p>
+                <p text-uppercase no-margin padding-bottom>My Reports</p>
+              </ion-col>
+            </ion-row>
+            <ion-row style="margin-top: 1px;">
+              <ion-col 
+                (click)="services()" 
+                class="bg-primary" 
+                text-center>
+                  <ion-icon 
+                    name="md-list" 
+                    class="icon-padding-top">
+                  </ion-icon>
+                  <p 
+                    style="font-size:20px;margin-top:10px;" 
+                    no-margin>
+                    قائمة التحاليل
+                  </p>
+                  <p 
+                    text-uppercase 
+                    no-margin>
+                      Service
+                  </p>
+              </ion-col>
+              <ion-col class="bg-primary" (click)="quality()" style="margin-left: 1px;" text-center>
+                <ion-icon name="ios-ribbon" class="icon-padding-top"></ion-icon>
+                <p style="font-size:20px;margin-top:10px;" no-margin>ضمان الجودة</p>
+                <p text-uppercase no-margin padding-bottom>Qaulity Assurance</p>
+              </ion-col>
+            </ion-row>
+            <ion-row style="margin-top: 1px;">
+              <ion-col 
+                (click)="locations()" 
+                class="bg-primary" 
+                text-center>
+                  <ion-icon 
+                    name="ios-call" 
+                    class="icon-padding-top">
+                  </ion-icon>
+                  <p 
+                    style="font-size:20px;margin-top:10px;" 
+                    no-margin>
+                    اتصل بنا
+                  </p>
+                  <p 
+                    text-uppercase 
+                    no-margin>
+                      contact us
+                  </p>
+              </ion-col>
+              <ion-col (click)="feedback()" class="bg-primary " style="margin-left: 1px;" text-center>
+                <ion-icon name="ios-chatbubbles" class="icon-padding-top"></ion-icon>
+                <p style="font-size:20px;margin-top:10px;" no-margin>للإقتراحات و الشكاوي</p>
+                <p text-uppercase no-margin padding-bottom>feedback</p>
+              </ion-col>
+            </ion-row>
+            <ion-row style="margin-top: 1px;">
+              <ion-col (click)="shareApp()" class="bg-primary" text-center>
+                <ion-icon name="md-share" class="icon-padding-top"></ion-icon>
+                <p style="font-size:20px;margin-top:10px;" no-margin>شارك التطبيق</p>
+                <p text-uppercase no-margin padding-bottom>share app</p>
+              </ion-col>
+              <ion-col (click)="events()" class="bg-primary " style="margin-left: 1px;" text-center>
+                <ion-icon name="md-megaphone" class="icon-padding-top"></ion-icon>
+                <p style="font-size:20px;margin-top:10px;" no-margin>الأخبار و الأحداث</p>
+                <p text-uppercase no-margin padding-bottom>News & events</p>
+              </ion-col>
+            </ion-row>
+            <ion-row style="margin-top: 1px;" (click)="aboutus()">
+              <ion-col class="bg-primary" col-5 text-center>
+                <ion-icon name="ios-flower" class="icon-padding-top"></ion-icon>
+              </ion-col>
+              <ion-col class="bg-primary">
+                <p style="font-size:20px;margin-top:10px;" no-margin>من نحن</p>
+                <p text-uppercase no-margin padding-bottom>ABOUT US</p>
+              </ion-col>
+            </ion-row>
+            <ion-row style="margin-top: 1px;">
+              <ion-col class="bg-facebook bottom-left-border" text-center (click)="openUrl('facebook')">
+                <ion-icon name="logo-facebook" class="icon-padding-top" padding-vertical></ion-icon>
+              </ion-col>
+              <ion-col 
+                class="bg-twitter" 
+                style="border-left: 1px solid white;" 
+                text-center 
+                (click)="openUrl('twitter')">
+                <ion-icon name="logo-twitter" class="icon-padding-top" padding-vertical></ion-icon>
+              </ion-col>
+              <ion-col 
+                class="bg-snapchat" 
+                style="border-left: 1px solid white;" 
+                text-center 
+                (click)="openUrl('snapchat')">
+                <ion-icon name="logo-snapchat" class="icon-padding-top" padding-vertical></ion-icon>
+              </ion-col>
+              <ion-col 
+                class="bg-instagram bottom-right-border" 
+                style="border-left: 1px solid white;" 
+                text-center
+                (click)="openUrl('instagram')">
+                <ion-icon name="logo-instagram" class="icon-padding-top" padding-vertical></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-scroll>
+        </ion-col>
     </ion-row>
-  </ion-grid>
-  <ion-grid name="logo" style="margin-top:-10px;" [hidden]="profile.patient_name">
-    <ion-row>
-      <ion-col text-center style="padding-top: 0px">
-        <img src="../assets/imgs/logo.png" style="width: 500px;height: 100px;object-fit: contain;">
-      </ion-col>
-    </ion-row>
-  </ion-grid>
 
-  <!-- <ion-grid style="height: 80%" > -->
-  <ion-scroll scrollY="true" id="homescroll">
-    <ion-grid>
-      <ion-row class="top-left-border top-right-border" style="margin-top: 1px;" (click)="myconsultation()">
-        <ion-col class="bg-primary top-left-border" col-3 text-center>
-          <ion-icon name="calendar" class="icon-padding-top"></ion-icon>
-        </ion-col>
-        <ion-col text-uppercase class="bg-primary top-right-border" style="margin-left: -1px;">
-          <h4>My consultation</h4>
-          <!-- <h4 translate>BOOK_APPOINTMENT</h4>  -->
-          <small>
-            <p>View previous medical history</p>
-          </small>
-        </ion-col>
-      </ion-row>
-      <ion-row style="margin-top: 1px;" (click)="laborder()">
-        <ion-col class="bg-primary" col-3 text-center>
-          <ion-icon name="ios-paper" class="icon-padding-top"></ion-icon>
-        </ion-col>
-        <ion-col text-uppercase class="bg-primary" style="margin-left: -1px;">
-          <h4>My Reports</h4>
-          <small>
-            <p>View lab reports</p>
-          </small>
-        </ion-col>
-      </ion-row>
-      <ion-row style="margin-top: 1px;" (click)="doctors()">
-        <ion-col class="bg-primary" col-3 text-center>
-          <ion-icon name="people" class="icon-padding-top"></ion-icon>
-        </ion-col>
-        <ion-col text-uppercase class="bg-primary" style="margin-left: -1px;">
-          <h4>Book Appointment</h4>
-          <small>
-            <p>Book appointment with doctors</p>
-          </small>
-        </ion-col>
-      </ion-row>
-      <ion-row style="margin-top: 1px;" (click)="services()">
-        <ion-col class="bg-primary" col-3 text-center>
-          <ion-icon name="medkit" class="icon-padding-top"></ion-icon>
-        </ion-col>
-        <ion-col text-uppercase class="bg-primary" style="margin-left: -1px;">
-          <h4>services</h4>
-          <small>
-            <p>Services available in our clinic</p>
-          </small>
-        </ion-col>
-      </ion-row>
-      <ion-row style="margin-top: 1px;" (click)="insurance()">
-        <ion-col class="bg-primary" col-3 text-center>
-          <ion-icon name="list-box" class="icon-padding-top"></ion-icon>
-        </ion-col>
-        <ion-col text-uppercase class="bg-primary" style="margin-left: -1px;">
-          <h4>Insurances</h4>
-          <small>
-            <p>Available insurance companies</p>
-          </small>
-        </ion-col>
-      </ion-row>
-      <ion-row style="margin-top: 1px;" (click)="aboutus()">
-        <ion-col class="bg-primary" col-3 text-center>
-          <ion-icon name="ios-flower" class="icon-padding-top"></ion-icon>
-        </ion-col>
-        <ion-col text-uppercase class="bg-primary" style="margin-left: -1px;">
-          <h4>About Us</h4>
-          <small>
-            <p>Know more about us</p>
-          </small>
-        </ion-col>
-      </ion-row>
-      <ion-row (click)="locations()" class="bottom-left-border bottom-left-border bottom-right-border" style="margin-top: 1px;">
-        <ion-col class="bg-primary bottom-left-border" col-3 text-center>
-          <ion-icon name="ios-pin" class="icon-padding-top"></ion-icon>
-        </ion-col>
-        <ion-col text-uppercase class="bg-primary bottom-right-border" style="margin-left: -1px;">
-          <h4>Locations</h4>
-          <small>
-            <p>Find the locations of our clinics </p>
-          </small>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-scroll>
+  </ion-grid>
+  <ion-fab top right [hidden] = "!profile.patient_name" (click)="logout()">
+    <button ion-fab mini><ion-icon name="log-out"></ion-icon></button>
+  </ion-fab>
 </ion-content>
+
+<ion-footer text-center>
+  <small style="color:grey">POWERED BY MEDAS SOLUTIONS</small>
+</ion-footer>

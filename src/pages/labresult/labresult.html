@@ -1,24 +1,21 @@
 <ion-content>
-  <ion-navbar color="lightblue"></ion-navbar>
-  <ion-card color="lightblue" class="fullCard" no-margin text-center>
+  <ion-navbar color="secondary"></ion-navbar>
+  <ion-card color="secondary" class="fullCard" no-margin text-center>
     <ion-icon name="ios-paper" style="color:white;font-size: 7rem;">
     </ion-icon>
     <ion-card-header text-center style="font-size:2rem;">
       {{test_name}}
     </ion-card-header>
-    <ion-segment [(ngModel)]="workbench">
-      <ion-segment-button value="lab">
-        Lab
-      </ion-segment-button>
-      <ion-segment-button value="radiology">
-        Radiology
-      </ion-segment-button>
-      <!-- <ion-segment-button value="download">
-        Download
-      </ion-segment-button> -->
-    </ion-segment>
   </ion-card>
-  <ion-scroll scrollY="true" id="scroll">
+  <ion-segment [(ngModel)]="workbench">
+    <ion-segment-button value="lab">
+       Lab
+     </ion-segment-button>
+     <ion-segment-button value="download">
+       Download
+     </ion-segment-button>
+   </ion-segment>
+  <ion-scroll scrollY="true" id="scrollResult">
     <!-- labs -->
     <div *ngIf="workbench == 'lab'">
       <ion-list>
@@ -47,11 +44,9 @@
         >
         <h3>{{file.reportName}}</h3>
         <p><small>{{file.fileName}}</small></p>
-        <ion-icon name="md-download" item-end color="lightblue"></ion-icon>
+        <ion-icon name="md-download" item-end color="secondary"></ion-icon>
         </ion-item>
       </ion-list>
     </div>
   </ion-scroll>
-
-
 </ion-content>

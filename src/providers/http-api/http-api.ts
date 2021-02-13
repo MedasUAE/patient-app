@@ -18,6 +18,21 @@ export class HttpApiProvider {
     this.headers.append('accept-version','1.0.0');
   }
 
+  getAboutUs(){
+    this.headers.set('accept-version','1.0.0');
+    return this.http.get(urls.aboutus ,{headers: this.headers})
+  }
+
+  getPromotions(){
+    this.headers.set('accept-version','1.0.0');
+    return this.http.get(urls.promotions ,{headers: this.headers})
+  }
+
+  getLocations(){
+    this.headers.set('accept-version','1.0.0');
+    return this.http.get(urls.locations ,{headers: this.headers})
+  }
+
   getConsultList(opnumber){
     this.headers.set('accept-version','1.0.0');
     return this.http.get(urls.consults + "/" + opnumber,{headers: this.headers})
@@ -63,11 +78,6 @@ export class HttpApiProvider {
     return this.http.get(urls.reportfiles + "/" + consultid,{headers: this.headers})
   }
 
-  getDownloadFile(filename){
-    this.headers.set('accept-version','1.0.0');
-    return this.http.get(urls.download + "/" + filename,{headers: this.headers})
-  }
-
   getDoctors(officeid){
     this.headers.set('accept-version','1.0.0');
     let url;
@@ -84,13 +94,13 @@ export class HttpApiProvider {
   }
 
   getMyProfile(consultid){
-    this.headers.set('accept-version','1.0.0');
+    this.headers.set('accept-version','2.0.0');
     return this.http.get(urls.profile + "/" + consultid,{headers: this.headers})
   }
 
-  getServices(officeid){
-    this.headers.set('accept-version','1.0.0');
-    return this.http.get(urls.services + "/" + officeid,{headers: this.headers})
+  getServices(officeid, type){
+    this.headers.set('accept-version','2.0.0');
+    return this.http.get(urls.services + "/" + officeid + "?type=" + type,{headers: this.headers})
   }
 
   getInsurars(){

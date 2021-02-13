@@ -1,6 +1,10 @@
 <ion-content>
-  <ion-navbar color="lightblue"></ion-navbar>
-  <ion-card color="lightblue" class="fullCard" no-margin text-center>
+  <ion-navbar color="secondary">
+      <button ion-button menuToggle>
+        <ion-icon name="menu" color="light"></ion-icon>
+    </button>
+  </ion-navbar>
+  <ion-card color="secondary" class="fullCard" no-margin text-center>
     <ion-icon 
       name="pin" 
       style="color:white;font-size: 7rem;">
@@ -10,27 +14,28 @@
     </ion-card-header>
   </ion-card>
   <!-- <ion-scroll scrollY="true" id="scroll"> -->
-    <ion-card margin-top>
+    <ion-card margin-top *ngFor="let location of locations">
       <ion-item text-center>
-        <h2>MAIN BRANCH</h2>
+        <h2 text-uppercase>{{location.title}}</h2>
       </ion-item>
       <ion-card-content>
-        <p>Al-Mursalat Area - Abu Bakar St. Riyadh, Kingdom of Saudi Arabia</p>
-        <p>Email: info@alfarabilabs.com</p>
+        <h4>{{location.address}}</h4>
+        
       </ion-card-content>
-      <a ion-button full style="margin-bottom: 0px;" href="tel:00966114533356" color="lightblue">CALL US</a>
-    </ion-card>
-    <ion-card margin-top>
-      <ion-item text-center>
-        <h2>SUB BRANCH</h2>
-      </ion-item>
-      <ion-card-content>
-        <p>Olaya - Mussa Bin Nasseer St.
-          Cerecon Bldg. Riyadh,
-          Kingdom of Saudi Arabia</p>
-        <p>Email: info@daweni.com.sa</p>
-      </ion-card-content>
-      <a ion-button full style="margin-bottom: 0px;" href="tel:00966114624082" color="lightblue">CALL US</a>
+      <ion-row>
+        <ion-col text-center>
+          <button ion-button icon-start clear (click)="openmap(location.otherdetails)">
+            <ion-icon name="map"></ion-icon>
+            <div>Map</div>
+          </button>
+        </ion-col>
+        <ion-col text-center>
+          <a ion-button icon-start clear href="tel:{{location.telephone}}">
+            <ion-icon name="call"></ion-icon>
+            <div>Call</div>
+          </a>
+        </ion-col>
+      </ion-row>
     </ion-card>
   <!-- </ion-scroll> -->
 </ion-content>

@@ -14,11 +14,15 @@ export const sysOptions = {
 	systemLanguage: defaultLanguage
 };
 
-export const appId = "test3client";
+export const appId = "farabi";
+export const appVersion = "v1.0";
 
-const baseUrl = "http://188.117.92.20:3000/";
+const baseUrl = "http://46.151.211.36:3005/";
 
 export const urls = {
+	aboutus: baseUrl + "aboutus",
+	promotions: baseUrl + "promotions",
+	locations: baseUrl + "locations",
 	login: baseUrl + "login",
 	consults: baseUrl + "consults",
 	vitals: baseUrl + "vitalsigns",
