@@ -4,6 +4,7 @@ import { NavController } from 'ionic-angular';
 import { Http, Headers } from '@angular/http';
 import { LoadingController } from 'ionic-angular';
 import { HomePage } from '../../pages/home/home';
+import { RegistrationsPage } from '../../pages/registrations/registrations';
 import { urls } from "../../providers/system.constants";
 
 
@@ -52,6 +53,11 @@ export class LoginPage {
   goHome(){
     this.navCtrl.setRoot(HomePage);
   }
+
+  goRegister(){
+    this.navCtrl.setRoot(RegistrationsPage);
+  }
+
 
   apiCall(postData){
     // console.log(urls.login);
