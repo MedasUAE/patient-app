@@ -4,8 +4,9 @@ import { HttpModule } from '@angular/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePageModule } from '../pages/home/home.module';
+import { RegistrationsPageModule } from '../pages/registrations/registrations.module';
+import { ListPage } from '../pages/list/list';
 import { LoginPage } from "../pages/login/login";
-import { EventsPage } from "../pages/events/events";
 import { PersonalDetailsPageModule } from "../pages/personal-details/personal-details.module";
 import { ConsultlistPageModule } from "../pages/consultlist/consultlist.module";
 import { SummaryPageModule } from "../pages/summary/summary.module";
@@ -17,19 +18,16 @@ import { InsurancesPageModule } from "../pages/insurances/insurances.module";
 import { LabOrderPageModule } from "../pages/laborder/laborder.module";
 import { AboutUsPageModule } from "../pages/about-us/about-us.module";
 import { LocationsPageModule } from "../pages/location/locations.module";
-import { FeedbackPageModule } from "../pages/feedback/feedback.module";
-import { QualityPageModule } from "../pages/quality/quality.module";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { SocialSharing } from '@ionic-native/social-sharing';
 import { HttpApiProvider } from '../providers/http-api/http-api';
-import { InAppBrowser } from "@ionic-native/in-app-browser";
 
 @NgModule({
   declarations: [
     MyApp,
-    LoginPage,EventsPage
+    ListPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -42,24 +40,22 @@ import { InAppBrowser } from "@ionic-native/in-app-browser";
     ServicesPageModule,
     InsurancesPageModule,
     HomePageModule,
+	RegistrationsPageModule,
     LabOrderPageModule,
     LabResultPageModule,
     AboutUsPageModule,
     LocationsPageModule,
-    FeedbackPageModule,
-    QualityPageModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LoginPage,EventsPage
+    ListPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    SocialSharing,
-    InAppBrowser,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpApiProvider,
     

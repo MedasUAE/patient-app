@@ -1,13 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, MenuController } from 'ionic-angular';
+import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { SocialSharing } from '@ionic-native/social-sharing';
 
 import { HomePage } from '../pages/home/home';
-import { LocationsPage } from '../pages/location/locations';
-import { AboutUsPage } from '../pages/about-us/about-us';
-import { appVersion } from '../providers/system.constants'
+//import { RegistrationsPage } from '../pages/registrations/registrations';
+import { ListPage } from '../pages/list/list';
 // import { LoginPage } from '../pages/login/login';
 
 @Component({
@@ -17,36 +15,22 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any;
-  version: string;
+
   pages: Array<{title: string, component: any}>;
 
   constructor(
     public platform: Platform, 
     public statusBar: StatusBar, 
-    private menuCtrl: MenuController,
-    private socialSharing: SocialSharing,
     public splashScreen: SplashScreen) {
-      this.initializeApp();
-      this.version = appVersion;
-      // used for an example of ngFor and navigation
-      this.pages = [
-        { title: 'Home', component: HomePage }
-      ];
+    this.initializeApp();
 
-  }
+    // used for an example of ngFor and navigation
+    this.pages = [
+      { title: 'Home', component: HomePage },
+	  //{ title: 'Registrations', component: RegistrationsPage },
+      { title: 'List', component: ListPage }
+    ];
 
-  locations(){
-    this.rootPage = LocationsPage
-    this.menuCtrl.close();
-  }
-
-  aboutus(){
-    this.rootPage = AboutUsPage
-    this.menuCtrl.close();
-  }
-
-  shareApp(){
-    this.socialSharing.share("Share the App", null, null, "https://play.google.com/store/apps/details?id=medas.farabi")
   }
 
   initializeApp() {
@@ -58,6 +42,8 @@ export class MyApp {
       this.rootPage = HomePage
       // (localStorage.getItem('profile') && localStorage.getItem('token')) ? this.rootPage = HomePage : this.rootPage = LoginPage;
     });
+
+    
   }
 
   // openPage(page) {
